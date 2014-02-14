@@ -1,4 +1,4 @@
-J.D.Salinger
+J.D.Salinger - Waits
 ============
 This document describes the team work assignment for Telerik Academy students studying Object-Oriented Programming (OOP) – February 2014.
 
