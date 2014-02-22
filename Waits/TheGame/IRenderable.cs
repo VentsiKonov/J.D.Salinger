@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Trial_1._0
+{
+    public interface IRenderable
+    {
+        MatrixCoords Position { get; } //Is actually the coordinates of the top leftmost char of the object.
+        MatrixCoords GetTopLeftCoordOfPosition(); //Used as initial position for rendering.
+        char[,] GetImage(); //Each object ont the field is represented by a set of chars.
+    }
+}

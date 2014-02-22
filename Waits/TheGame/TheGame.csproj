@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleRenderer.cs" />
+    <Compile Include="House.cs" />
+    <Compile Include="IRenderable.cs" />
+    <Compile Include="IRenderer.cs" />
+    <Compile Include="MatrixCoords.cs" />
     <Compile Include="TheGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
