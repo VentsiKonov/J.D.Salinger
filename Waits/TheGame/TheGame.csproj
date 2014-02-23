@@ -7,7 +7,7 @@
     <ProjectGuid>{EA0A3C39-D184-4A4A-BBE7-6F4111D58A54}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TheGame</RootNamespace>
+    <RootNamespace>Waits</RootNamespace>
     <AssemblyName>TheGame</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -41,16 +41,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apple.cs" />
+    <Compile Include="Bagel.cs" />
+    <Compile Include="Character.cs" />
     <Compile Include="ConsoleRenderer.cs" />
+    <Compile Include="HostCharacter.cs" />
+    <Compile Include="Building.cs" />
     <Compile Include="House.cs" />
+    <Compile Include="InteractionManager.cs" />
+    <Compile Include="Inventory.cs" />
     <Compile Include="IRenderable.cs" />
     <Compile Include="IRenderer.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="MainCharacter.cs" />
     <Compile Include="MatrixCoords.cs" />
+    <Compile Include="Oshav.cs" />
+    <Compile Include="Rakia.cs" />
+    <Compile Include="Sex.cs" />
+    <Compile Include="ShopKeeperCharacter.cs" />
+    <Compile Include="Song.cs" />
     <Compile Include="TheGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TownCarolTeacherCharacter.cs" />
+    <Compile Include="TownHall.cs" />
+    <Compile Include="Tree.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="WaitsClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

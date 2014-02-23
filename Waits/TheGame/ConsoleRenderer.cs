@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Trial_1._0
+namespace Waits
 {
     public class ConsoleRenderer : IRenderer
     {
@@ -56,19 +56,36 @@ namespace Trial_1._0
            //Pasing the filed as a string to the console.
            Console.SetCursorPosition(0, 0);
 
-           StringBuilder scene = new StringBuilder();
-
            for (int row = 0; row < this.renderContextMatrixRows; row++)
            {
                for (int col = 0; col < this.renderContextMatrixCols; col++)
                {
-                   scene.Append(this.renderContextMatrix[row, col]);
+                   char symbol = this.renderContextMatrix[row, col];
+                   ColorSymbol(symbol);
+                   Console.Write(symbol);
                }
-
-               scene.Append(Environment.NewLine);
+               Console.WriteLine();
            }
 
-           Console.WriteLine(scene.ToString());
+       }
+
+       private void ColorSymbol(char symbol)
+       {
+           switch (symbol)
+           {
+               case '\u2591':
+                   Console.ForegroundColor = ConsoleColor.Red;
+                   break;
+               case '\u2593': 
+                   Console.ForegroundColor = ConsoleColor.DarkCyan;
+                   break;
+               case (char)64:
+                   Console.ForegroundColor = ConsoleColor.DarkGreen;
+                   break;
+               default:
+                   Console.ForegroundColor = ConsoleColor.DarkGray;
+                   break;
+           }
        }
 
        public void ClearQueue()
@@ -82,5 +99,7 @@ namespace Trial_1._0
                }
            }
        }
+
+       
     }
 }

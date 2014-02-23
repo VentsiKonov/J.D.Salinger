@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    class Apple : Item
+    public class Apple //: Item
     {
     }
 }

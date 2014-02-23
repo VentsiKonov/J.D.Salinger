@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    class HostCharacter : Character
+    public class HostCharacter //: Character
     {
     }
 }

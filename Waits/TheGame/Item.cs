@@ -18,7 +18,7 @@ namespace Waits
         public int Price
         {
             get { return this.price; }
-            set { this.price = price; }
+            set { this.Price = price; }
         }
     }
 }

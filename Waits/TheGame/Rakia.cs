@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    class Rakia : Item
+    public class Rakia //: Item
     {
         
     }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Trial_1._0
+namespace Waits
 {
     public struct MatrixCoords
     {

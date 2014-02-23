@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    class Oshav : Item
+    public class Oshav //: Item
     {
     }
 }
