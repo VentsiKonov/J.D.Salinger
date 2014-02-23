@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NAudio">
+      <HintPath>.\NAudio.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,6 +48,7 @@
     <Compile Include="Bagel.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="ConsoleRenderer.cs" />
+    <Compile Include="GridDrawer.cs" />
     <Compile Include="HostCharacter.cs" />
     <Compile Include="Building.cs" />
     <Compile Include="House.cs" />
@@ -56,6 +60,7 @@
     <Compile Include="MainCharacter.cs" />
     <Compile Include="MatrixCoords.cs" />
     <Compile Include="Oshav.cs" />
+    <Compile Include="PlayerMP3.cs" />
     <Compile Include="Rakia.cs" />
     <Compile Include="Sex.cs" />
     <Compile Include="ShopKeeperCharacter.cs" />
@@ -69,6 +74,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="WaitsClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

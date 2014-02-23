@@ -32,6 +32,7 @@
 
 
             field.RenderAll();
+            PlayerMP3.Play(@"../../Songs/song04.mp3");
         }
     }
 }

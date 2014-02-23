@@ -20,6 +20,9 @@ namespace Waits
            this.renderContextMatrixRows = renderContextMatrix.GetLength(0);
            this.renderContextMatrixCols = renderContextMatrix.GetLength(1);
 
+           Console.BufferHeight = Console.WindowHeight;
+           Console.BufferWidth = Console.WindowWidth;
+
            this.ClearQueue(); //Used to get the initial field.
        }
 
