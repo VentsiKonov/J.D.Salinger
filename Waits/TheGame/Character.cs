@@ -12,10 +12,11 @@ namespace Waits
         private Sex sex;
         private Inventory inventory;
 
-        public Character(string name, Sex sex)
+        public Character(string name, Sex sex, MatrixCoords position)
         {
             this.Name = name;
             this.sex = sex;
+            this.Position = position;
         }
 
         public string Name
@@ -27,6 +28,18 @@ namespace Waits
         public Sex Sex
         {
             get { return this.sex; }
+        }
+
+        public MatrixCoords Position { get; set; }
+        public char PlayerChar { get; protected set; }
+        public MatrixCoords GetTopLeftCoordOfPosition()
+        {
+            return this.Position;
+        }
+
+        public char[,] GetImage()
+        {
+            return new char[,] { { this.PlayerChar } };
         }
     }
 }

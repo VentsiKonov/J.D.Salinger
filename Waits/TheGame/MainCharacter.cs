@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    class MainCharacter : Character
+    class MainCharacter : Character, IRenderable
     {
-        public MainCharacter(string name, Sex sex)
-            : base(name, sex) { }
+        private const char MainChar = (char)38;
+        public MainCharacter(string name, Sex sex, MatrixCoords position)
+            : base(name, sex, position)
+        {
+            this.PlayerChar = MainChar;
+        }
 
     }
 }

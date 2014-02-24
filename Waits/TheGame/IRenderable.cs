@@ -8,7 +8,7 @@ namespace Waits
 {
     public interface IRenderable
     {
-        MatrixCoords Position { get; } //Is actually the coordinates of the top leftmost char of the object.
+        MatrixCoords Position { get; set; } //Is actually the coordinates of the top leftmost char of the object.
         MatrixCoords GetTopLeftCoordOfPosition(); //Used as initial position for rendering.
         char[,] GetImage(); //Each object ont the field is represented by a set of chars.
     }

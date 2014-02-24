@@ -15,7 +15,7 @@ namespace Waits
             this.Position = position;
         }
 
-        public MatrixCoords Position { get; protected set; }
+        public MatrixCoords Position { get; set; }
         public char[,] BuildingImage { get; protected set; }
         public MatrixCoords GetTopLeftCoordOfPosition()
         {

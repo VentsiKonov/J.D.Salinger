@@ -13,7 +13,7 @@ namespace Waits
             this.Position = position;
             this.TreeChar = (char)64;
         }
-        public MatrixCoords Position { get; private set; }
+        public MatrixCoords Position { get; set; }
         public char TreeChar { get; private set; }
 
 

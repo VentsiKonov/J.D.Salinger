@@ -85,6 +85,9 @@ namespace Waits
                case (char)64:
                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                    break;
+               case (char)38:
+                   Console.ForegroundColor = ConsoleColor.Cyan;
+                   break;
                default:
                    Console.ForegroundColor = ConsoleColor.DarkGray;
                    break;

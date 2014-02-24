@@ -48,6 +48,7 @@
     <Compile Include="Bagel.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="ConsoleRenderer.cs" />
+    <Compile Include="GameEngine.cs" />
     <Compile Include="GridDrawer.cs" />
     <Compile Include="HostCharacter.cs" />
     <Compile Include="Building.cs" />
@@ -73,7 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="WaitsClassDiagram1.cd" />
+    <None Include="WaitsClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="TextFile1.txt" />
