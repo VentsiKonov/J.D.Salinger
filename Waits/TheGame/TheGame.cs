@@ -10,7 +10,6 @@
     {
         static void Main()
         {
-            Console.CursorVisible = false;
 
             //var renderer = new ConsoleRenderer(20, 40);
 

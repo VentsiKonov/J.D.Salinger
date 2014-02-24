@@ -47,6 +47,7 @@ namespace Waits
                     }
                     break;
                 default:
+                    // Empty
                     break;
             }
 

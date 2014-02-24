@@ -36,6 +36,8 @@ namespace Waits
             Console.BufferHeight = Console.WindowHeight;
             Console.BufferWidth = Console.WindowWidth;
 
+            Console.CursorVisible = false;
+
             theMatrix = new char[Rows * 4 + 1, Cols * 6 + 1];
 
             Calc();
@@ -145,13 +147,6 @@ namespace Waits
             Console.SetCursorPosition(x + 4, y + 2);
             Console.Write(specialCharsS[8]);
 
-
-            // DEBUG 
-            //
-            Console.SetCursorPosition(Console.BufferWidth - 25, 2);
-            Console.WriteLine(CurrentSelection.Row + " " + CurrentSelection.Col);
-            //
-            // DEBUG
             Console.SetCursorPosition(0, Console.WindowHeight - 1); // Don't missdraw
 
         }
