@@ -54,7 +54,7 @@
     <Compile Include="HostCharacter.cs" />
     <Compile Include="Building.cs" />
     <Compile Include="House.cs" />
-    <Compile Include="InteractionManager.cs" />
+    <Compile Include="InputEngine.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="IRenderable.cs" />
     <Compile Include="IRenderer.cs" />

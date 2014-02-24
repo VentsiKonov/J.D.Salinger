@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Waits
 {
 
-    public static class InteractionManager
+    public static class InputEngine
     {
         private const ConsoleKey keyUp = ConsoleKey.UpArrow;
         private const ConsoleKey keyDown = ConsoleKey.DownArrow;
@@ -24,7 +24,6 @@ namespace Waits
                 case keyUp:
                     if (current.Row >= 1)
                     {
-
                         GridDrawer.Select(new MatrixCoords(current.Row - 1, current.Col));
                     }
                     break;
@@ -46,6 +45,8 @@ namespace Waits
                     {
                          GridDrawer.Select(new MatrixCoords(current.Row, current.Col + 1));
                     }
+                    break;
+                default:
                     break;
             }
 

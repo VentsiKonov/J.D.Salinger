@@ -27,7 +27,6 @@ namespace Waits
         {
             // initialization
 
-
             Rows = SizeX;
             Cols = SizeY;
 
@@ -38,15 +37,16 @@ namespace Waits
             Console.BufferWidth = Console.WindowWidth;
 
             theMatrix = new char[Rows * 4 + 1, Cols * 6 + 1];
+
             Calc();
 
-            Draw();
+            InitialDraw();
 
-            Select(new MatrixCoords(0, 0));
+            Select(new MatrixCoords(0, 0)); // Initial selection coordinates
 
         }
 
-        public static void Draw()
+        public static void InitialDraw()
         {
             StringBuilder result = new StringBuilder();
             for (int row = 0; row < theMatrix.GetLength(0); row++)
@@ -55,6 +55,26 @@ namespace Waits
                 {
                     result.Append(theMatrix[row, col]);
                 }
+
+                // Draw menu frame
+                if (row == 0)
+                {
+                    result.Append(specialCharsD[0]);
+                    result.Append(new string(specialCharsD[10], menuWidth - 2));
+                    result.Append(specialCharsD[2]);
+                }
+                else if (row == theMatrix.GetLength(0) - 1)
+                {
+                    result.Append(specialCharsD[6]);
+                    result.Append(new string(specialCharsD[10], menuWidth - 2));
+                    result.Append(specialCharsD[8]);
+                }
+                else
+                {
+                    result.Append(specialCharsD[9] + new string(specialCharsS[11], menuWidth-2) + specialCharsD[9]);
+                }
+                // End of menu frame
+
                 result.Append("\n");
             }
 
@@ -187,7 +207,6 @@ namespace Waits
             Console.SetCursorPosition(0, Console.WindowHeight - 1); // Don't missdraw
 
         }
-
 
     }
 }
