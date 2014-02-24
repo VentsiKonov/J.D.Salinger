@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    public class Song
+    public enum Song
     {
+        MalkaMoma,
+        KoledarskaMolitva,
+        OiKoledo,
+        StaraKoledarska,
+        VechniatBog,
+        KoledarskaKitka,
+        Kolkoto,
+        BlagoslovenDaSiGospodi,
+        SabraliSaTriDelia,
+        PesenZaBranko
     }
 }

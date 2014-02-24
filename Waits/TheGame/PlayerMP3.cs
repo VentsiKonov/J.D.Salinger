@@ -12,13 +12,11 @@ namespace Waits
         private const string PATH = @"../../SongStorage/song";
         private const string EXT = @".mp3";
 
-        public static void Play(int songNumber)
+        public static void Play(Song songNumber)
         {
-            if (songNumber <= 0 && songNumber > NUM_OF_SONGS) songNumber = 1;
-
             using (DirectSoundOut output = new DirectSoundOut())
             {
-                using (Mp3FileReader reader = new Mp3FileReader(PATH + songNumber + EXT))
+                using (Mp3FileReader reader = new Mp3FileReader(PATH + ((int)songNumber+1) + EXT))
                 {
                     output.Init(reader);
                     output.Play();
@@ -32,7 +30,7 @@ namespace Waits
             }
         }
 
-        public static string SongName(int songNumber)
+        public static string SongName(Song songNumber)
         {
             string[] songName =  {
                            "Malka Moma",
@@ -46,9 +44,7 @@ namespace Waits
                            "Sabrali Sa Tri Delia",
                            "Pesen Za Branko"};
 
-            if (songNumber <= 0 && songNumber > NUM_OF_SONGS) songNumber = 1;
-
-            return songName[songNumber + 1];
+            return songName[(int)songNumber];
         }
 
     }

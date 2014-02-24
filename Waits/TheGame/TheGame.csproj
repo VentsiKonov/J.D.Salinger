@@ -49,6 +49,7 @@
     <Compile Include="Character.cs" />
     <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="GameEngine.cs" />
+    <Compile Include="Grandmother.cs" />
     <Compile Include="GridDrawer.cs" />
     <Compile Include="HostCharacter.cs" />
     <Compile Include="Building.cs" />
