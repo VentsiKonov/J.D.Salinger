@@ -3,40 +3,53 @@ using System.Text;
 
 namespace Waits
 {
-    class GridDrawer
+    static class GridDrawer
     {
-        public int Rows { get; private set; }
-        public int Cols { get; private set; }
+        private const int SizeX = 15;
+        private const int SizeY = 15;
 
-        private char[] specialCharsD = { '╔', '╦', '╗', '╠', '╬', '╣', '╚', '╩', '╝', '║', '═' };
-        private char[] specialCharsS = { '┌', '┬', '┐', '├', '┼', '┤', '└', '┴', '┘', '│', '─' };
+        public static int Rows { get; private set; }
+        public static int Cols { get; private set; }
 
-        private char[,] theMatrix;
+        private static char[] specialCharsD = { '╔', '╦', '╗', '╠', '╬', '╣', '╚', '╩', '╝', '║', '═' };
+        private static char[] specialCharsS = { '┌', '┬', '┐', '├', '┼', '┤', '└', '┴', '┘', '│', '─', ' ' };
 
-        public GridDrawer(int rows, int cols)
+        private static char[,] theMatrix;
+
+        public static MatrixCoords CurrentSelection
         {
-
-
-            this.Rows = rows;
-            this.Cols = cols;
-
-            //Console.WindowHeight = this.Rows * 4 + 3;
-            //Console.WindowWidth = this.Cols * 6 + 2;
-
-            //Console.BufferHeight = Console.WindowHeight;
-            //Console.BufferWidth = Console.WindowWidth;
-
-            theMatrix = new char[this.Rows * 4 + 1, this.Cols * 6 + 1];
-            this.Calc();
-            this.Draw();
+            get;
+            private set;
         }
 
-        public void Draw()
+        public static void Init()
         {
-            Console.WriteLine(this);
+            // initialization
+            
+
+            Rows = SizeX;
+            Cols = SizeY;
+
+            Console.WindowHeight = Rows * 4 + 3;
+            Console.WindowWidth = Cols * 6 + 2;
+
+            Console.BufferHeight = Console.WindowHeight;
+            Console.BufferWidth = Console.WindowWidth;
+
+            theMatrix = new char[Rows * 4 + 1, Cols * 6 + 1];
+            Calc();
+
+            Select(new MatrixCoords(0,0));
+            
+            //this.Draw();
         }
 
-        public void Calc()
+        public static void Draw()
+        {
+            Console.WriteLine(ToString());
+        }
+
+        public static void Calc()
         {
             //char[,] theMatrix = new char[this.Rows * 4 + 1, this.Cols * 6 + 1];
 
@@ -59,7 +72,56 @@ namespace Waits
             }
         }
 
-        public override string ToString()
+        private static void DrawCurrentSelection()
+        {
+            int x = CurrentSelection.Row * 4 + 1;
+            int y = CurrentSelection.Col * 6 + 1;
+
+            theMatrix[x, y] = specialCharsS[0];
+            theMatrix[x, y + 1] = specialCharsS[10];
+            theMatrix[x, y + 2] = specialCharsS[10];
+            theMatrix[x, y + 3] = specialCharsS[10];
+            theMatrix[x, y + 4] = specialCharsS[2];
+            theMatrix[x + 1, y] = specialCharsS[9];
+            theMatrix[x + 1, y + 4] = specialCharsS[9];
+            theMatrix[x + 2, y] = specialCharsS[6];
+            theMatrix[x + 2, y + 1] = specialCharsS[10];
+            theMatrix[x + 2, y + 2] = specialCharsS[10];
+            theMatrix[x + 2, y + 3] = specialCharsS[10];
+            theMatrix[x + 2, y + 4] = specialCharsS[8];
+
+            Draw();
+        }
+
+        public static void Select(MatrixCoords coordinates)
+        {
+            ClearCurrentSelection();
+            CurrentSelection = coordinates;
+            DrawCurrentSelection();
+        }
+
+        public static void ClearCurrentSelection()
+        {
+            int x = CurrentSelection.Row * 4 + 1;
+            int y = CurrentSelection.Col * 6 + 1;
+
+            theMatrix[x, y] = specialCharsS[11];
+            theMatrix[x, y + 1] = specialCharsS[11];
+            theMatrix[x, y + 2] = specialCharsS[11];
+            theMatrix[x, y + 3] = specialCharsS[11];
+            theMatrix[x, y + 4] = specialCharsS[11];
+            theMatrix[x + 1, y] = specialCharsS[11];
+            theMatrix[x + 1, y + 4] = specialCharsS[11];
+            theMatrix[x + 2, y] = specialCharsS[11];
+            theMatrix[x + 2, y + 1] = specialCharsS[11];
+            theMatrix[x + 2, y + 2] = specialCharsS[11];
+            theMatrix[x + 2, y + 3] = specialCharsS[11];
+            theMatrix[x + 2, y + 4] = specialCharsS[11];
+
+            Draw();
+        }
+
+        public static string ToString()
         {
             StringBuilder result = new StringBuilder();
             for (int row = 0; row < theMatrix.GetLength(0); row++)
