@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    abstract class Item
+    public abstract class Item
     {
         private int price;
 
@@ -18,7 +18,7 @@ namespace Waits
         public int Price
         {
             get { return this.price; }
-            set { this.Price = price; }
+            set { this.price = value; }
         }
     }
 }
