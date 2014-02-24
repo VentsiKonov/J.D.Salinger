@@ -7,6 +7,7 @@ namespace Waits
     {
         private const int SizeX = 15;
         private const int SizeY = 15;
+        private const int menuWidth = 50;
 
         public static int Rows { get; private set; }
         public static int Cols { get; private set; }
@@ -25,13 +26,13 @@ namespace Waits
         public static void Init()
         {
             // initialization
-            
+
 
             Rows = SizeX;
             Cols = SizeY;
 
-            Console.WindowHeight = Rows * 4 + 3;
-            Console.WindowWidth = Cols * 6 + 2;
+            Console.WindowHeight = Rows * 4 + 4;
+            Console.WindowWidth = Cols * 6 + 2 + menuWidth;
 
             Console.BufferHeight = Console.WindowHeight;
             Console.BufferWidth = Console.WindowWidth;
@@ -39,14 +40,25 @@ namespace Waits
             theMatrix = new char[Rows * 4 + 1, Cols * 6 + 1];
             Calc();
 
-            Select(new MatrixCoords(0,0));
-            
-            //this.Draw();
+            Draw();
+
+            Select(new MatrixCoords(0, 0));
+
         }
 
         public static void Draw()
         {
-            Console.WriteLine(ToString());
+            StringBuilder result = new StringBuilder();
+            for (int row = 0; row < theMatrix.GetLength(0); row++)
+            {
+                for (int col = 0; col < theMatrix.GetLength(1); col++)
+                {
+                    result.Append(theMatrix[row, col]);
+                }
+                result.Append("\n");
+            }
+
+            Console.WriteLine(result.ToString());
         }
 
         public static void Calc()
@@ -74,23 +86,47 @@ namespace Waits
 
         private static void DrawCurrentSelection()
         {
-            int x = CurrentSelection.Row * 4 + 1;
-            int y = CurrentSelection.Col * 6 + 1;
+            int y = CurrentSelection.Row * 4 + 1;
+            int x = CurrentSelection.Col * 6 + 1;
 
-            theMatrix[x, y] = specialCharsS[0];
-            theMatrix[x, y + 1] = specialCharsS[10];
-            theMatrix[x, y + 2] = specialCharsS[10];
-            theMatrix[x, y + 3] = specialCharsS[10];
-            theMatrix[x, y + 4] = specialCharsS[2];
-            theMatrix[x + 1, y] = specialCharsS[9];
-            theMatrix[x + 1, y + 4] = specialCharsS[9];
-            theMatrix[x + 2, y] = specialCharsS[6];
-            theMatrix[x + 2, y + 1] = specialCharsS[10];
-            theMatrix[x + 2, y + 2] = specialCharsS[10];
-            theMatrix[x + 2, y + 3] = specialCharsS[10];
-            theMatrix[x + 2, y + 4] = specialCharsS[8];
+            Console.SetCursorPosition(x, y);
+            Console.Write(specialCharsS[0]);
 
-            Draw();
+            Console.SetCursorPosition(x + 1, y);
+            Console.Write(specialCharsS[10]);
+
+            Console.SetCursorPosition(x + 2, y);
+            Console.Write(specialCharsS[10]);
+
+            Console.SetCursorPosition(x + 3, y);
+            Console.Write(specialCharsS[10]);
+
+            Console.SetCursorPosition(x + 4, y);
+            Console.Write(specialCharsS[2]);
+
+            Console.SetCursorPosition(x, y + 1);
+            Console.Write(specialCharsS[9]);
+
+            Console.SetCursorPosition(x + 4, y + 1);
+            Console.Write(specialCharsS[9]);
+
+            Console.SetCursorPosition(x, y + 2);
+            Console.Write(specialCharsS[6]);
+
+            Console.SetCursorPosition(x + 1, y + 2);
+            Console.Write(specialCharsS[10]);
+
+            Console.SetCursorPosition(x + 2, y + 2);
+            Console.Write(specialCharsS[10]);
+
+            Console.SetCursorPosition(x + 3, y + 2);
+            Console.Write(specialCharsS[10]);
+
+            Console.SetCursorPosition(x + 4, y + 2);
+            Console.Write(specialCharsS[8]);
+
+            Console.SetCursorPosition(0, Console.WindowHeight - 1); // Don't missdraw
+
         }
 
         public static void Select(MatrixCoords coordinates)
@@ -102,38 +138,49 @@ namespace Waits
 
         public static void ClearCurrentSelection()
         {
-            int x = CurrentSelection.Row * 4 + 1;
-            int y = CurrentSelection.Col * 6 + 1;
+            int y = CurrentSelection.Row * 4 + 1;
+            int x = CurrentSelection.Col * 6 + 1;
 
-            theMatrix[x, y] = specialCharsS[11];
-            theMatrix[x, y + 1] = specialCharsS[11];
-            theMatrix[x, y + 2] = specialCharsS[11];
-            theMatrix[x, y + 3] = specialCharsS[11];
-            theMatrix[x, y + 4] = specialCharsS[11];
-            theMatrix[x + 1, y] = specialCharsS[11];
-            theMatrix[x + 1, y + 4] = specialCharsS[11];
-            theMatrix[x + 2, y] = specialCharsS[11];
-            theMatrix[x + 2, y + 1] = specialCharsS[11];
-            theMatrix[x + 2, y + 2] = specialCharsS[11];
-            theMatrix[x + 2, y + 3] = specialCharsS[11];
-            theMatrix[x + 2, y + 4] = specialCharsS[11];
+            Console.SetCursorPosition(x, y);
+            Console.Write(specialCharsS[11]);
 
-            Draw();
+            Console.SetCursorPosition(x + 1, y);
+            Console.Write(specialCharsS[11]);
+
+            Console.SetCursorPosition(x + 2, y);
+            Console.Write(specialCharsS[11]);
+
+            Console.SetCursorPosition(x + 3, y);
+            Console.Write(specialCharsS[11]);
+
+            Console.SetCursorPosition(x + 4, y);
+            Console.Write(specialCharsS[11]);
+
+            Console.SetCursorPosition(x, y + 1);
+            Console.Write(specialCharsS[11]);
+
+            Console.SetCursorPosition(x + 4, y + 1);
+            Console.Write(specialCharsS[11]);
+
+            Console.SetCursorPosition(x, y + 2);
+            Console.Write(specialCharsS[11]);
+
+            Console.SetCursorPosition(x + 1, y + 2);
+            Console.Write(specialCharsS[11]);
+
+            Console.SetCursorPosition(x + 2, y + 2);
+            Console.Write(specialCharsS[11]);
+
+            Console.SetCursorPosition(x + 3, y + 2);
+            Console.Write(specialCharsS[11]);
+
+            Console.SetCursorPosition(x + 4, y + 2);
+            Console.Write(specialCharsS[11]);
+
+            Console.SetCursorPosition(0, Console.WindowHeight - 1); // Don't missdraw
+
         }
 
-        public static string ToString()
-        {
-            StringBuilder result = new StringBuilder();
-            for (int row = 0; row < theMatrix.GetLength(0); row++)
-            {
-                for (int col = 0; col < theMatrix.GetLength(1); col++)
-                {
-                    result.Append(theMatrix[row, col]);
-                }
-                result.Append("\n");
-            }
-            return result.ToString();
-        }
 
     }
 }

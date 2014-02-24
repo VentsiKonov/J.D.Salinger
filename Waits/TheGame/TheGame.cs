@@ -38,7 +38,7 @@
             GridDrawer.Init();
             while (true)
             {
-                InteractionManager.NewUserSelection();
+                InteractionManager.UserInput();
             }
 
         }

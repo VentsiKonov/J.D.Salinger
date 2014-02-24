@@ -14,9 +14,10 @@ namespace Waits
         private const ConsoleKey keyRight = ConsoleKey.RightArrow;
         private const ConsoleKey keyLeft = ConsoleKey.LeftArrow;
 
-        public static void NewUserSelection()
+        public static void UserInput()
         {
             ConsoleKeyInfo input = Console.ReadKey();
+
             MatrixCoords current = GridDrawer.CurrentSelection;
             switch (input.Key)
             {
@@ -31,6 +32,7 @@ namespace Waits
                     if (current.Row < GridDrawer.Rows - 1)
                     {
                          GridDrawer.Select(new MatrixCoords(current.Row + 1, current.Col));
+                         
                     }
                     break;
                 case keyLeft:
