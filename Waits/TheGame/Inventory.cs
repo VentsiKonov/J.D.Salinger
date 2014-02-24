@@ -8,7 +8,7 @@ namespace Waits
 {
     class Inventory
     {
-        private List<Item> items;
+        private Dictionary<Item, int> items;
         private int money;
 
         public Inventory(int money, params Item[] items)
@@ -16,7 +16,14 @@ namespace Waits
             this.Money = money;
             foreach (Item item in items)
             {
-                this.items.Add(item);
+                if (this.items.ContainsKey(item))
+                {
+                    this.items[item]++;
+                }
+                else
+                {
+                    this.items.Add(item, 1);
+                }                
             }
         }
 
@@ -33,19 +40,50 @@ namespace Waits
             }
         }
 
-        public void Stash(Item item)
+        public void Stash(Item item, int count)
         {
-            items.Add(item);
+            if (this.items.ContainsKey(item))
+            {
+                this.items[item] += count;
+            }
+            else
+            {
+                this.items.Add(item, count);
+            }      
         }
 
-        public Item Take(Item item)
+        public Item Take(Item item, int count)
         {
-            if (items.Contains(item))
+            if (this.items.ContainsKey(item))
             {
-                items.Remove(item);
-                return item;
+                if (this.items[item] < count)
+	            {
+		            //TODO some exception when you can't get that many items
+	            }
+                if (this.items[item] == count)
+                {
+                    this.items.Remove(item);
+                }
+                this.items[item] -= count;
             }
-            return item;//TODO empty item?
+            else
+            {
+                //TODO some exception when you can't get that many items
+            }                 
+            return item;
+            //TODO empty item?
+        }
+
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder();
+            foreach (var item in this.items)
+            {
+                result.AppendFormat("{0} x {1}", item.Key, item.Value);
+                result.AppendLine();
+            }
+
+            return base.ToString();
         }
     }
 }
