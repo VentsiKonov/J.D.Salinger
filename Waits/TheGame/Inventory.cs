@@ -83,7 +83,7 @@ namespace Waits
                 result.AppendLine();
             }
 
-            return base.ToString();
+            return result.ToString();
         }
     }
 }
