@@ -125,6 +125,13 @@ namespace Waits
             Console.SetCursorPosition(x + 4, y + 2);
             Console.Write(specialCharsS[8]);
 
+
+            // DEBUG 
+            //
+            Console.SetCursorPosition(Console.BufferWidth - 25, 2);
+            Console.WriteLine(CurrentSelection.Row + " " + CurrentSelection.Col);
+            //
+            // DEBUG
             Console.SetCursorPosition(0, Console.WindowHeight - 1); // Don't missdraw
 
         }
