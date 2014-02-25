@@ -9,7 +9,7 @@ namespace Waits
     public class Grandmother : Character
     {
 
-        public override MatrixCoords Move(MatrixCoords changeWith)
+        public override void Move(MatrixCoords changeWith)
         {
             throw new NotImplementedException();
         }
