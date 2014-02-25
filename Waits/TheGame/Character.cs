@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
+
+
     public abstract class Character : GameObject, IRenderable, IMovable
     {
         private string name;
@@ -30,6 +32,6 @@ namespace Waits
             return new char[,] { { this.PlayerChar } };
         }
 
-        public abstract MatrixCoords Move(MatrixCoords changeWith);
+        public abstract void Move(MatrixCoords newCoordinates);
     }
 }
