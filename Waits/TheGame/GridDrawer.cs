@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 
 namespace Waits
@@ -7,13 +8,21 @@ namespace Waits
     {
         private const int SizeX = 15;
         private const int SizeY = 15;
-        private const int menuWidth = 50;
+        private const int MenuWidth = 50;
 
         public static int Rows { get; private set; }
         public static int Cols { get; private set; }
 
-        private static char[] specialCharsD = { '╔', '╦', '╗', '╠', '╬', '╣', '╚', '╩', '╝', '║', '═' };
-        private static char[] specialCharsS = { '┌', '┬', '┐', '├', '┼', '┤', '└', '┴', '┘', '│', '─', ' ' };
+        private readonly static char[] specialCharsD = { '╔', '╦', '╗', '╠', '╬', '╣', '╚', '╩', '╝', '║', '═' };
+        private readonly static char[] specialCharsS = { '┌', '┬', '┐', '├', '┼', '┤', '└', '┴', '┘', '│', '─', ' ' };
+        private readonly static string[] menus = { "SampleMenu" };
+
+        private readonly static char heroIcon = 'K';
+        private readonly static char houseIcon = 'H';
+        private readonly static char pubIcon = 'P';
+        private readonly static char grannyIcon = 'G';
+
+        public static bool MenuVisible { get; private set; }
 
         private static char[,] theMatrix;
 
@@ -23,15 +32,16 @@ namespace Waits
             private set;
         }
 
-        public static void Init()
+        public static void Init(params IRenderable[] objects)
         {
             // initialization
 
             Rows = SizeX;
             Cols = SizeY;
+            MenuVisible = false;
 
             Console.WindowHeight = Rows * 4 + 4;
-            Console.WindowWidth = Cols * 6 + 2 + menuWidth;
+            Console.WindowWidth = Cols * 6 + 2 + MenuWidth;
 
             Console.BufferHeight = Console.WindowHeight;
             Console.BufferWidth = Console.WindowWidth;
@@ -43,6 +53,11 @@ namespace Waits
             Calc();
 
             InitialDraw();
+
+            foreach (IRenderable drawable in objects)
+            {
+                DrawObject(drawable);
+            }
 
             Select(new MatrixCoords(0, 0)); // Initial selection coordinates
 
@@ -62,18 +77,18 @@ namespace Waits
                 if (row == 0)
                 {
                     result.Append(specialCharsD[0]);
-                    result.Append(new string(specialCharsD[10], menuWidth - 2));
+                    result.Append(new string(specialCharsD[10], MenuWidth - 2));
                     result.Append(specialCharsD[2]);
                 }
                 else if (row == theMatrix.GetLength(0) - 1)
                 {
                     result.Append(specialCharsD[6]);
-                    result.Append(new string(specialCharsD[10], menuWidth - 2));
+                    result.Append(new string(specialCharsD[10], MenuWidth - 2));
                     result.Append(specialCharsD[8]);
                 }
                 else
                 {
-                    result.Append(specialCharsD[9] + new string(specialCharsS[11], menuWidth-2) + specialCharsD[9]);
+                    result.Append(specialCharsD[9] + new string(specialCharsS[11], MenuWidth - 2) + specialCharsD[9]);
                 }
                 // End of menu frame
 
@@ -83,7 +98,7 @@ namespace Waits
             Console.WriteLine(result.ToString());
         }
 
-        public static void Calc()
+        private static void Calc()
         {
             //char[,] theMatrix = new char[this.Rows * 4 + 1, this.Cols * 6 + 1];
 
@@ -156,9 +171,14 @@ namespace Waits
             ClearCurrentSelection();
             CurrentSelection = coordinates;
             DrawCurrentSelection();
+            if (MenuVisible)
+            {
+                ClearMenu();
+                MenuVisible = false;
+            }
         }
 
-        public static void ClearCurrentSelection()
+        private static void ClearCurrentSelection()
         {
             int y = CurrentSelection.Row * 4 + 1;
             int x = CurrentSelection.Col * 6 + 1;
@@ -201,6 +221,74 @@ namespace Waits
 
             Console.SetCursorPosition(0, Console.WindowHeight - 1); // Don't missdraw
 
+        }
+
+        public static void DrawObject(IRenderable objectToDraw)
+        {
+            // Calculations for the grid matrix coordinates
+            Console.SetCursorPosition(objectToDraw.Position.Col * 6 + 3, objectToDraw.Position.Row * 4 + 2);
+            char symbol = ' ';
+            if (objectToDraw is MainCharacter)
+            {
+                symbol = heroIcon;
+            }
+            //  else if (objectToDraw is House)
+            //  {
+            //      symbol = houseIcon;
+            //  }
+            //  else if (objectToDraw is Grandmother)   !!! Uncomment when classes are done!
+            //  {
+            //      symbol = grannyIcon;
+            //  }
+            //  else if (objectToDraw is Pub)
+            //  {
+            //      symbol = pubIcon;
+            //  }
+            Console.Write(symbol);
+        }
+
+        public static void ToggleMenu()
+        {
+            DrawMenu();
+            MenuVisible = true;
+        }
+
+        private static void DrawMenu()
+        {
+            // To be properly implemented
+            int left = Console.BufferWidth - MenuWidth;
+            int top = 2;
+            string[] menu = LoadMenu(menus[0]);
+            for (int i = 0; i < menu.Length ; i++)
+			{
+			 
+                Console.SetCursorPosition(left + 2, top + i);
+                Console.Write(menu[i]);
+			}
+        }
+
+        private static void ClearMenu()
+        {
+            int left = Console.BufferWidth - MenuWidth;
+            int top = 2;
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.SetCursorPosition(left, top + i);
+                Console.Write(new string(specialCharsS[11], MenuWidth - 5));
+            }
+        }
+
+        public static void ClearGridSymbol(MatrixCoords position)
+        {
+            Console.SetCursorPosition(position.Col * 6 + 3, position.Row * 4 + 2);
+            Console.Write(specialCharsS[11]);
+        }
+
+        private static string[] LoadMenu(string fileName)
+        {
+            StreamReader sr = new StreamReader("../../" + fileName + ".txt");
+            return sr.ReadToEnd().Split('\n');
         }
 
     }

@@ -85,6 +85,7 @@
     <None Include="WaitsClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SampleMenu.txt" />
     <Content Include="SongStorage\song3.mp3" />
     <Content Include="SongStorage\song4.mp3" />
     <Content Include="SongStorage\song5.mp3" />

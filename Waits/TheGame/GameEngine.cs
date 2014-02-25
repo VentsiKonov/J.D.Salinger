@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    public class GameEngine
+    public static class GameEngine
     {
-        // TODO:  -> Венци
-        // Check grid object selection
-        // Draw menu accordingly
-        // Move character
 
     }
 }

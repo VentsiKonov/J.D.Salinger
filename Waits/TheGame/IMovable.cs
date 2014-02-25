@@ -8,6 +8,6 @@ namespace Waits
 {
     public interface IMovable
     {
-        MatrixCoords Move(MatrixCoords changeWith);
+        void Move(MatrixCoords newCoordinates);
     }
 }

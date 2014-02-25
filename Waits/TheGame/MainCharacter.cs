@@ -58,10 +58,10 @@ namespace Waits
         {
             this.Bag.Remove(item);
         }
-        MatrixCoords Move(MatrixCoords changeWith)
+        public override void Move(MatrixCoords newCoordinates)
         {
-            //TODO:
-            throw new NotImplementedException();
+            this.Position = newCoordinates;
+            GridDrawer.DrawObject(this);
         }
     }
 }
