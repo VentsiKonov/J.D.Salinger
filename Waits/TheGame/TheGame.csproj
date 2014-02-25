@@ -44,48 +44,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Apple.cs" />
+    <Compile Include="Items\Apple.cs" />
     <Compile Include="Character.cs" />
-    <Compile Include="ConsoleRenderer.cs" />
-    <Compile Include="GameEngine.cs" />
-    <Compile Include="GameObject.cs" />
-    <Compile Include="Gega.cs" />
-    <Compile Include="Grandmother.cs" />
-    <Compile Include="GridDrawer.cs" />
-    <Compile Include="Building.cs" />
-    <Compile Include="House.cs" />
-    <Compile Include="IMovable.cs" />
-    <Compile Include="InputEngine.cs" />
-    <Compile Include="IRenderable.cs" />
-    <Compile Include="IRenderer.cs" />
-    <Compile Include="ISellable.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="IUpgradable.cs" />
-    <Compile Include="IUpgrader.cs" />
+    <Compile Include="GameObjects\GameObject.cs" />
+    <Compile Include="Items\Gega.cs" />
+    <Compile Include="GameObjects\Grandmother.cs" />
+    <Compile Include="Engines and structures\GridDrawer.cs" />
+    <Compile Include="GameObjects\Building.cs" />
+    <Compile Include="GameObjects\House.cs" />
+    <Compile Include="Interfaces\IMovable.cs" />
+    <Compile Include="Engines and structures\InputEngine.cs" />
+    <Compile Include="Interfaces\IRenderable.cs" />
+    <Compile Include="Interfaces\IRenderer.cs" />
+    <Compile Include="Interfaces\ISellable.cs" />
+    <Compile Include="Items\Item.cs" />
+    <Compile Include="Interfaces\IUpgradable.cs" />
+    <Compile Include="Interfaces\IUpgrader.cs" />
     <Compile Include="MainCharacter.cs" />
-    <Compile Include="MarketPlace.cs" />
-    <Compile Include="MatrixCoords.cs" />
-    <Compile Include="Oshav.cs" />
-    <Compile Include="PlayerMP3.cs" />
-    <Compile Include="Pub.cs" />
-    <Compile Include="Rakia.cs" />
-    <Compile Include="RakiaType.cs" />
-    <Compile Include="SellableItem.cs" />
-    <Compile Include="Sex.cs" />
-    <Compile Include="Song.cs" />
-    <Compile Include="SpeedBoots.cs" />
+    <Compile Include="GameObjects\MarketPlace.cs" />
+    <Compile Include="Engines and structures\MatrixCoords.cs" />
+    <Compile Include="Items\Oshav.cs" />
+    <Compile Include="Engines and structures\PlayerMP3.cs" />
+    <Compile Include="GameObjects\Pub.cs" />
+    <Compile Include="Items\Rakia.cs" />
+    <Compile Include="Items\RakiaType.cs" />
+    <Compile Include="Items\SellableItem.cs" />
+    <Compile Include="Engines and structures\Sex.cs" />
+    <Compile Include="Engines and structures\Song.cs" />
+    <Compile Include="Items\SpeedBoots.cs" />
     <Compile Include="TheGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TownHall.cs" />
-    <Compile Include="Tree.cs" />
-    <Compile Include="UprgradingItem.cs" />
+    <Compile Include="GameObjects\TownHall.cs" />
+    <Compile Include="GameObjects\Tree.cs" />
+    <Compile Include="Items\UprgradingItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="WaitsClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SampleMenu.txt" />
+    <Content Include="Menus\SampleMenu.txt" />
     <Content Include="SongStorage\song3.mp3" />
     <Content Include="SongStorage\song4.mp3" />
     <Content Include="SongStorage\song5.mp3" />
@@ -96,6 +94,7 @@
     <Content Include="SongStorage\song10.mp3" />
     <Content Include="TextFile1.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
