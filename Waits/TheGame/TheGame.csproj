@@ -49,6 +49,7 @@
     <Compile Include="Character.cs" />
     <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="GameEngine.cs" />
+    <Compile Include="Gega.cs" />
     <Compile Include="Grandmother.cs" />
     <Compile Include="GridDrawer.cs" />
     <Compile Include="HostCharacter.cs" />
@@ -59,14 +60,19 @@
     <Compile Include="IRenderable.cs" />
     <Compile Include="IRenderer.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="IUpgrader.cs" />
     <Compile Include="MainCharacter.cs" />
+    <Compile Include="MarketPlace.cs" />
     <Compile Include="MatrixCoords.cs" />
     <Compile Include="Oshav.cs" />
     <Compile Include="PlayerMP3.cs" />
+    <Compile Include="Pub.cs" />
     <Compile Include="Rakia.cs" />
+    <Compile Include="RakiaType.cs" />
     <Compile Include="Sex.cs" />
     <Compile Include="ShopKeeperCharacter.cs" />
     <Compile Include="Song.cs" />
+    <Compile Include="SpeedBoots.cs" />
     <Compile Include="TheGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TownCarolTeacherCharacter.cs" />

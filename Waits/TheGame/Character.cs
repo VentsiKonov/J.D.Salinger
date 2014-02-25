@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    abstract class Character
+    public abstract class Character
     {
         private string name;
         private Sex sex;
