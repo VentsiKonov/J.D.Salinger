@@ -4,7 +4,7 @@
     <Position X="2.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAEAAAAAAQAABAAAAAAAAAQAAAAAA=</HashCode>
-      <FileName>TownHall.cs</FileName>
+      <FileName>GameObjects\TownHall.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -12,7 +12,7 @@
     <Position X="0.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAABAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>House.cs</FileName>
+      <FileName>GameObjects\House.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -20,7 +20,7 @@
     <Position X="4" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgAAAAAAAQAAAAAABCAAAAAIAAAAA=</HashCode>
-      <FileName>Building.cs</FileName>
+      <FileName>GameObjects\Building.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -28,7 +28,7 @@
     <Position X="9.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SpeedBoots.cs</FileName>
+      <FileName>Items\SpeedBoots.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -36,7 +36,7 @@
     <Position X="18.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Apple.cs</FileName>
+      <FileName>Items\Apple.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -44,7 +44,7 @@
     <Position X="11.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Gega.cs</FileName>
+      <FileName>Items\Gega.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -52,7 +52,7 @@
     <Position X="16.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Oshav.cs</FileName>
+      <FileName>Items\Oshav.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -60,7 +60,7 @@
     <Position X="14" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQACAAAAAAAAAAAAAAgAAAEAAAAAAAAAAAAAACAAAAA=</HashCode>
-      <FileName>Rakia.cs</FileName>
+      <FileName>Items\Rakia.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -68,14 +68,14 @@
     <Position X="14" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Item.cs</FileName>
+      <FileName>Items\Item.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Waits.MarketPlace" Collapsed="true">
     <Position X="5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MarketPlace.cs</FileName>
+      <FileName>GameObjects\MarketPlace.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -83,7 +83,7 @@
     <Position X="10.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>UprgradingItem.cs</FileName>
+      <FileName>Items\UprgradingItem.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -91,7 +91,7 @@
     <Position X="25.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAgAAAAAAAQAAAAAABAAAAAAAAAAAA=</HashCode>
-      <FileName>Tree.cs</FileName>
+      <FileName>GameObjects\Tree.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.186" Collapsed="true" />
   </Class>
@@ -106,7 +106,7 @@
     <Position X="16.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SellableItem.cs</FileName>
+      <FileName>Items\SellableItem.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -114,7 +114,7 @@
     <Position X="7.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAEAAAAAAAA=</HashCode>
-      <FileName>Pub.cs</FileName>
+      <FileName>GameObjects\Pub.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -122,7 +122,7 @@
     <Position X="27.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACAAAAQgAAAAAAAAAAAAAAAAAAAgAAAgAAAAAA=</HashCode>
-      <FileName>PlayerMP3.cs</FileName>
+      <FileName>Engines and structures\PlayerMP3.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Waits.MainCharacter" Collapsed="true">
@@ -136,45 +136,30 @@
   <Class Name="Waits.InputEngine" Collapsed="true">
     <Position X="25.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAgACAAAAIAAAACAABAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>InputEngine.cs</FileName>
+      <HashCode>AAAAAAAAAAgACAAEAIAAIACAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Engines and structures\InputEngine.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Waits.GridDrawer" Collapsed="true">
     <Position X="29" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAIgAAAAAAAEAAAAEAAIACAACABYQAAAACQBAAAAA=</HashCode>
-      <FileName>GridDrawer.cs</FileName>
+      <HashCode>ABEIIgAAAAAAAEEQAAAiMIADAAKIBYQgAAACQBgAAAA=</HashCode>
+      <FileName>Engines and structures\GridDrawer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Waits.Grandmother" Collapsed="true">
     <Position X="20.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Grandmother.cs</FileName>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Grandmother.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Waits.GameObject" Collapsed="true">
     <Position X="11.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAACAAEAAAAAAAAggAAAAAQCAAAAAIAAAAQAAAAAAAA=</HashCode>
-      <FileName>GameObject.cs</FileName>
+      <FileName>GameObjects\GameObject.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="Waits.GameEngine" Collapsed="true">
-    <Position X="27.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>GameEngine.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Waits.ConsoleRenderer" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="25.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAAABAAAAIAABAAABAAACAAAAEAAAA=</HashCode>
-      <FileName>ConsoleRenderer.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Waits.Character" Collapsed="true">
     <Position X="22" Y="1.75" Width="1.5" />
@@ -188,56 +173,56 @@
     <Position X="25.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAwAEAAAAAAAEAAoAAAAAAAAAAAAA=</HashCode>
-      <FileName>MatrixCoords.cs</FileName>
+      <FileName>Engines and structures\MatrixCoords.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Interface Name="Waits.IUpgrader" Collapsed="true">
     <Position X="29" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IUpgrader.cs</FileName>
+      <FileName>Interfaces\IUpgrader.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Waits.ISellable" Collapsed="true">
     <Position X="25.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ISellable.cs</FileName>
+      <FileName>Interfaces\ISellable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Waits.IRenderer" Collapsed="true">
     <Position X="29" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAABAAAAIAAAAAAAAAACAAAAAAAAA=</HashCode>
-      <FileName>IRenderer.cs</FileName>
+      <FileName>Interfaces\IRenderer.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Waits.IRenderable" Collapsed="true">
     <Position X="27.25" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgAAAAAAAQAAAAAABAAAAAAAAAAAA=</HashCode>
-      <FileName>IRenderable.cs</FileName>
+      <FileName>Interfaces\IRenderable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Waits.IMovable" Collapsed="true">
     <Position X="25.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IMovable.cs</FileName>
+      <FileName>Interfaces\IMovable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Waits.IUpgradable" Collapsed="true">
     <Position X="27.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IUpgradable.cs</FileName>
+      <FileName>Interfaces\IUpgradable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="Waits.Song" Collapsed="true">
     <Position X="29" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAgAAAQAAgAAQAAABAAQAAAAEAAAAABQAAAAAAA=</HashCode>
-      <FileName>Song.cs</FileName>
+      <FileName>Engines and structures\Song.cs</FileName>
       <NewMemberFileName>Song - Copy.cs</NewMemberFileName>
     </TypeIdentifier>
   </Enum>
@@ -245,14 +230,14 @@
     <Position X="27.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
-      <FileName>Sex.cs</FileName>
+      <FileName>Engines and structures\Sex.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="Waits.RakiaType" Collapsed="true">
     <Position X="25.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAgQAAAAAAAAAAAAAAAIAAAAA=</HashCode>
-      <FileName>RakiaType.cs</FileName>
+      <FileName>Engines and structures\RakiaType.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

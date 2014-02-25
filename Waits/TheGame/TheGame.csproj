@@ -67,7 +67,7 @@
     <Compile Include="Engines and structures\PlayerMP3.cs" />
     <Compile Include="GameObjects\Pub.cs" />
     <Compile Include="Items\Rakia.cs" />
-    <Compile Include="Items\RakiaType.cs" />
+    <Compile Include="Engines and structures\RakiaType.cs" />
     <Compile Include="Items\SellableItem.cs" />
     <Compile Include="Engines and structures\Sex.cs" />
     <Compile Include="Engines and structures\Song.cs" />
