@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    public abstract class Character
+    public abstract class Character : GameObject, IRenderable, IMovable
     {
         private string name;
         private Sex sex;
-        private Inventory inventory;
-
         public Character(string name, Sex sex, MatrixCoords position)
         {
             this.Name = name;
@@ -19,17 +17,7 @@ namespace Waits
             this.Position = position;
         }
 
-        public string Name
-        {
-            get { return this.name; }
-            set { this.name = value; } //TODO name restrictions
-        }
-
-        public Sex Sex
-        {
-            get { return this.sex; }
-        }
-
+        public Sex Sex { get; set; }
         public MatrixCoords Position { get; set; }
         public char PlayerChar { get; protected set; }
         public MatrixCoords GetTopLeftCoordOfPosition()
@@ -41,5 +29,7 @@ namespace Waits
         {
             return new char[,] { { this.PlayerChar } };
         }
+
+        public abstract MatrixCoords Move(MatrixCoords changeWith);
     }
 }

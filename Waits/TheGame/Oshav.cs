@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    public class Oshav //: Item
+    public class Oshav : SellableItem, ISellable
     {
     }
 }

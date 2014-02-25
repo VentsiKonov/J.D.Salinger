@@ -6,19 +6,13 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    public abstract class Item
+    public abstract class Item : GameObject
     {
         private int price;
 
-        public Item(int price)
+        public Item(string name)
+            : base (name)
         {
-            this.Price = price;
-        }
-
-        public int Price
-        {
-            get { return this.price; }
-            set { this.price = value; }
-        }
+        }        
     }
 }

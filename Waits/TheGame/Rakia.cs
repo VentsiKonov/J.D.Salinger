@@ -6,21 +6,20 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    public class Rakia : Item
+    public class Rakia : SellableItem, ISellable
     {
         private const int GrozdovaPrice = 20;
         private const int SlivovaPrice = 40;
         private const int KaisievaPrice = 60;
-        public Rakia(RakiaType rakiaType)
-            : base(0)
+        public Rakia(string name, RakiaType rakiaType)
+            : base(name, 0)
         {
-            this.Rakia = rakiaType;
+            this.KindOfRakia = rakiaType;
             this.Price = GetRakiaPrice(rakiaType);
         }
-        public RakiaType Rakia { get; set; }
-        public int Price { get; set; }
+        public RakiaType KindOfRakia { get; set; }
 
-       public int GetRakiaPrice(RakiaType rakia)
+        public int GetRakiaPrice(RakiaType rakia)
         {
             if (rakia.Equals(RakiaType.Grozdova))
             {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    interface IUpgrader
+    public interface IUpgrader
     {
         bool IsUsed { get; set; }
     }

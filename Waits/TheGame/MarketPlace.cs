@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    public class MarketPlace: Building
+    public class MarketPlace: Building, IRenderable
     {
 
     }

@@ -45,21 +45,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Apple.cs" />
-    <Compile Include="Bagel.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="GameEngine.cs" />
+    <Compile Include="GameObject.cs" />
     <Compile Include="Gega.cs" />
     <Compile Include="Grandmother.cs" />
     <Compile Include="GridDrawer.cs" />
-    <Compile Include="HostCharacter.cs" />
     <Compile Include="Building.cs" />
     <Compile Include="House.cs" />
+    <Compile Include="IMovable.cs" />
     <Compile Include="InputEngine.cs" />
-    <Compile Include="Inventory.cs" />
     <Compile Include="IRenderable.cs" />
     <Compile Include="IRenderer.cs" />
+    <Compile Include="ISellable.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="IUpgradable.cs" />
     <Compile Include="IUpgrader.cs" />
     <Compile Include="MainCharacter.cs" />
     <Compile Include="MarketPlace.cs" />
@@ -69,15 +70,15 @@
     <Compile Include="Pub.cs" />
     <Compile Include="Rakia.cs" />
     <Compile Include="RakiaType.cs" />
+    <Compile Include="SellableItem.cs" />
     <Compile Include="Sex.cs" />
-    <Compile Include="ShopKeeperCharacter.cs" />
     <Compile Include="Song.cs" />
     <Compile Include="SpeedBoots.cs" />
     <Compile Include="TheGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TownCarolTeacherCharacter.cs" />
     <Compile Include="TownHall.cs" />
     <Compile Include="Tree.cs" />
+    <Compile Include="UprgradingItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

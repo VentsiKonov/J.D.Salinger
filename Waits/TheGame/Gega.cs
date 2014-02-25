@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    public class Gega: Item, IUpgrader
+    public class Gega: UprgradingItem, IUpgrader
     {
-        public Gega(int price)
-            : base(price)
+        public Gega()
         {
-            this.IsUsed = false;
         }
 
-        public bool IsUsed { get; set; }
     }
 }

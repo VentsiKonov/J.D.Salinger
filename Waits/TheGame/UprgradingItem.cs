@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    public class SpeedBoots: UprgradingItem, IUpgrader
+    public abstract class UprgradingItem : Item, IUpgrader
     {
-        public SpeedBoots(string name, int price)
+        public UprgradingItem(string name)
             : base(name)
         {
+            this.IsUsed = false;
         }
+        public bool IsUsed { get; set; }
     }
 }

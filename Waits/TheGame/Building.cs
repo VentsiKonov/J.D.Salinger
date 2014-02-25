@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    public class Building : IRenderable
+    public abstract class Building : GameObject, IRenderable
     {
         private const char BuildingChar = '\u2591';
-        public Building(MatrixCoords position, int height, int width)
+        public Building(string name, MatrixCoords position, int height, int width)
+            : base(name)
         {
             this.BuildingImage = new char[height, width];
             this.Position = position;

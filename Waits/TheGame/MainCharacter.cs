@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    public class MainCharacter : Character, IRenderable
+    public class MainCharacter : Character, IRenderable, IMovable, IUpgradable
     {
         private const char MainChar = (char)38;
         private const int InitialCapacity = 25;
-        private const int InitialBagelCount = 25;
-        public MainCharacter(string name, Sex sex, MatrixCoords position, List<Item> itemList)
+        private const int InitialBagelCount = 15;
+        public MainCharacter(string name, Sex sex, MatrixCoords position, List<ISellable> itemList)
             : base(name, sex, position)
         {
             this.PlayerChar = MainChar;
@@ -21,7 +21,7 @@ namespace Waits
 
             if (itemList == null)
             {
-                this.Bag = new List<Item>();
+                this.Bag = new List<ISellable>();
             }
             else
             {
@@ -30,8 +30,8 @@ namespace Waits
         }
 
         public int BagelCount { get; set; }
-        public  List<IUpgrader> Upgrades { get; set; }
-        public List<Item> Bag { get; set; }
+        public List<IUpgrader> Upgrades { get; set; }
+        public List<ISellable> Bag { get; set; }
         public int BagelsCaringCapacity { get; set; }
 
         public bool BagIsFull()
@@ -43,11 +43,25 @@ namespace Waits
             return false;
         }
 
-        public void UpgradingCharacter(IUpgrader item)
+        public void Upgrade(IUpgrader item)
         {
+            //TODO: Upgrade character.
             this.Upgrades.Add(item);
         }
 
+        public void AddToInventory(ISellable item)
+        {
+            this.Bag.Add(item);
+        }
 
+        public void RemoveFromInventory(ISellable item)
+        {
+            this.Bag.Remove(item);
+        }
+        MatrixCoords Move(MatrixCoords changeWith)
+        {
+            //TODO:
+            throw new NotImplementedException();
+        }
     }
 }

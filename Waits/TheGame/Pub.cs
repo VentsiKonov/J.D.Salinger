@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    class Pub
+    class Pub : Building, IRenderable
     {
         public bool CheckForBagels(MainCharacter hero)
         {
