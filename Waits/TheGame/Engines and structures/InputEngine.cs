@@ -50,13 +50,19 @@ namespace Waits
                     }
                     break;
                 case keyS:
-                    IRenderable[] obj = GridDrawer.objectList.Where(o=>(o.Position == GridDrawer.CurrentSelection)).ToArray();
-                    if(obj.Length > 0)
-                        InteractionManager.HouseInteraction(obj.ElementAt(0) as House, hero);
+                    IRenderable obj = GridDrawer.objectList.Where(o => (o.Position == GridDrawer.CurrentSelection)).FirstOrDefault();
+                    if (obj is House)
+                        InteractionManager.HouseInteraction(obj as House, hero);
+                    else if (obj is Grandmother)
+                        InteractionManager.GrannyInteraction(obj as Grandmother, hero);
                     break;
                 case keyM:
-                    GridDrawer.ClearGridSymbol(hero.Position);
-                    hero.Move(GridDrawer.CurrentSelection);
+                    IRenderable[] objects = GridDrawer.objectList.Where(o => (o.Position == GridDrawer.CurrentSelection)).ToArray();
+                    if (objects.Length == 0)
+                    {
+                        GridDrawer.ClearGridSymbol(hero.Position);
+                        hero.Move(GridDrawer.CurrentSelection);
+                    }
                     break;
                 default:
                     // Empty
