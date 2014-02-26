@@ -93,14 +93,14 @@ namespace Waits
 
             if (!wait.Upgrades.Contains(Gega.GegaInstance))
             {
-                if (wait.CheckedForEnoughBagels(Gega.GegaInstance.Price))
+                if (moneyInObjects > Gega.GegaInstance.Price)
                 {
                     wait.Upgrades.Add(Gega.GegaInstance);
                     return true;
                 }
             }
 
-            if (!wait.Upgrades.Contains(SpeedBoots.BootsInstance))
+            if (moneyInObjects > SpeedBoots.BootsInstance.Price)
             {
                 if (wait.CheckedForEnoughBagels(SpeedBoots.BootsInstance.Price))
                 {

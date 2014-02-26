@@ -35,6 +35,7 @@ namespace Waits
         public List<ISellable> Bag { get; set; }
         public List<Song> WaitSongs { get; set; }
         public int BagelsCaringCapacity { get; set; }
+        public int BagelsCarringCapacity { get; set; }
 
         public bool CheckedForEnoughBagels(int bagelsRequested)
         {
