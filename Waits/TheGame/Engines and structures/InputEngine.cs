@@ -15,6 +15,7 @@ namespace Waits
         private const ConsoleKey keyLeft = ConsoleKey.LeftArrow;
         private const ConsoleKey keyS = ConsoleKey.S;
         private const ConsoleKey keyM = ConsoleKey.M;
+        private const ConsoleKey keyT = ConsoleKey.T;
 
         public static void UserInput(MainCharacter hero)
         {
@@ -50,11 +51,15 @@ namespace Waits
                     }
                     break;
                 case keyS:
-                    IRenderable obj = GridDrawer.objectList.Where(o => (o.Position == GridDrawer.CurrentSelection)).FirstOrDefault();
-                    if (obj is House)
-                        InteractionManager.HouseInteraction(obj as House, hero);
-                    else if (obj is Grandmother)
-                        InteractionManager.GrannyInteraction(obj as Grandmother, hero);
+                    IRenderable houseCheck = GridDrawer.objectList.Where(o => (o.Position == GridDrawer.CurrentSelection)).FirstOrDefault();
+                    if (houseCheck is House)
+                        InteractionManager.HouseInteraction(houseCheck as House, hero);
+                    break;
+
+                case keyT:
+                    IRenderable grannyCheck = GridDrawer.objectList.Where(o => (o.Position == GridDrawer.CurrentSelection)).FirstOrDefault();
+                    if (grannyCheck is Grandmother)
+                        InteractionManager.GrannyInteraction(grannyCheck as Grandmother, hero);
                     break;
                 case keyM:
                     IRenderable[] objects = GridDrawer.objectList.Where(o => (o.Position == GridDrawer.CurrentSelection)).ToArray();
