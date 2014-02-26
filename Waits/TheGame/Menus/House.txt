@@ -1,4 +1,3 @@
 ﻿House
 --------------------
-(M)ove here
 (S)ing a song

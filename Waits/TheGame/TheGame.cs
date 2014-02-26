@@ -12,9 +12,17 @@
         {
             MainCharacter hero = new MainCharacter("User", Sex.Male, new MatrixCoords(0, 3), new List<ISellable>(),
                 new List<Song>());
-            TownHall hall = new TownHall(new MatrixCoords(4, 4));
+
+            Grandmother hall = new Grandmother("baba", Sex.Female, new MatrixCoords(4, 4));
+
             House house = new House("nane", new MatrixCoords(3,7), 2);
+
             GridDrawer.Init();
+
+            GridDrawer.StartScreen();
+
+            GridDrawer.Init();
+
             while (true)
             {
                 InputEngine.UserInput(hero);

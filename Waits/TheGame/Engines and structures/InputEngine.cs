@@ -15,6 +15,7 @@ namespace Waits
         private const ConsoleKey keyLeft = ConsoleKey.LeftArrow;
         private const ConsoleKey keyS = ConsoleKey.S;
         private const ConsoleKey keyM = ConsoleKey.M;
+        private const ConsoleKey keyT = ConsoleKey.T;
 
         public static void UserInput(MainCharacter hero)
         {
@@ -50,13 +51,23 @@ namespace Waits
                     }
                     break;
                 case keyS:
-                    IRenderable[] obj = GridDrawer.objectList.Where(o=>(o.Position == GridDrawer.CurrentSelection)).ToArray();
-                    if(obj.Length > 0)
-                        InteractionManager.HouseInteraction(obj.ElementAt(0) as House, hero);
+                    IRenderable houseCheck = GridDrawer.objectList.Where(o => (o.Position == GridDrawer.CurrentSelection)).FirstOrDefault();
+                    if (houseCheck is House)
+                        InteractionManager.HouseInteraction(houseCheck as House, hero);
+                    break;
+
+                case keyT:
+                    IRenderable grannyCheck = GridDrawer.objectList.Where(o => (o.Position == GridDrawer.CurrentSelection)).FirstOrDefault();
+                    if (grannyCheck is Grandmother)
+                        InteractionManager.GrannyInteraction(grannyCheck as Grandmother, hero);
                     break;
                 case keyM:
-                    GridDrawer.ClearGridSymbol(hero.Position);
-                    hero.Move(GridDrawer.CurrentSelection);
+                    IRenderable[] objects = GridDrawer.objectList.Where(o => (o.Position == GridDrawer.CurrentSelection)).ToArray();
+                    if (objects.Length == 0)
+                    {
+                        GridDrawer.ClearGridSymbol(hero.Position);
+                        hero.Move(GridDrawer.CurrentSelection);
+                    }
                     break;
                 default:
                     // Empty
