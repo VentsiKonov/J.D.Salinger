@@ -14,5 +14,12 @@ namespace Waits
         {
         }
         public abstract int Sell();
+        public override string ToString()
+        {
+            var output = base.ToString();
+            output += "Use: Can be sold for other items in the shop.";
+
+            return output;
+        }
     }
 }
