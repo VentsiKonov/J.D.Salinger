@@ -9,6 +9,6 @@ namespace Waits
     public interface IBuyable
     {
         int Price { get; set; }
-        IBuyable Buy(int bagalMoney);
+        IBuyable Buy(int bagelMoney);
     }
 }
