@@ -63,6 +63,12 @@ namespace Waits
         }
         public override void Move(MatrixCoords newCoordinates)
         {
+            // If character was in a building
+            if (GridDrawer.objectList.Select(o => o.Position).ToList().Contains(this.Position))
+            {
+                GridDrawer.ReloadObjects();
+            }
+
             this.Position = newCoordinates;
             GridDrawer.DrawObject(this);
         }

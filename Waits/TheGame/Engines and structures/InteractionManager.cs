@@ -8,6 +8,7 @@ namespace Waits.Engines_and_structures
 {
     class InteractionManager
     {
+        private const int GrannyTakeBagels = 2; //How many bagels a granny can take.
         public void HouseInteraction(House house, MainCharacter wait)
         {
             if (wait.HasSong(house.SongRequest))
@@ -29,6 +30,26 @@ namespace Waits.Engines_and_structures
             if (hasBonus == true)
             {
                 wait.BagelCount += House.Bonus;
+            }
+        }
+
+        public void GrannyInteraction(Grandmother granny, MainCharacter wait)
+        {
+            Song newSong = granny.GetSong;
+
+            if (wait.HasSong(newSong) == false)
+            {
+                switch (granny.WantsSomething())
+                {
+                    case 1:
+                        wait.BagelCount -= GrannyTakeBagels; break;
+                    case 2:
+                        wait.RemoveFromInventory(new Apple()); break;
+                    case 3:
+                        wait.RemoveFromInventory(new Oshav()); break;
+                    default:
+                        break;
+                }
             }
         }
     }

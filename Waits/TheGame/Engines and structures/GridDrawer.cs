@@ -6,6 +6,7 @@ namespace Waits
     using System.Collections.Generic;
     using System.IO;
     using System.Text;
+    using System.Linq;
 
     static class GridDrawer
     {
@@ -18,8 +19,9 @@ namespace Waits
 
         private readonly static char[] specialCharsD = { '╔', '╦', '╗', '╠', '╬', '╣', '╚', '╩', '╝', '║', '═' };
         private readonly static char[] specialCharsS = { '┌', '┬', '┐', '├', '┼', '┤', '└', '┴', '┘', '│', '─', ' ' };
-        
-        public enum Menus{
+
+        public enum Menus
+        {
             Sample,
             House,
             Pub,
@@ -44,8 +46,8 @@ namespace Waits
             private set;
         }
 
-
         public static List<IRenderable> objectList = new List<IRenderable>();
+
 
         public static void Init()
         {
@@ -68,12 +70,12 @@ namespace Waits
 
             DrawGridAndFrames();
 
-            foreach (IRenderable drawable in objectList)
-            {
-                DrawObject(drawable);
-            }
+            ReloadObjects();
+
+            DrawObject(objectList.Where(o => (o is MainCharacter)).ElementAt(0)); // Draw Main Character
 
             Select(new MatrixCoords(0, 0)); // Initial selection coordinates
+
             DrawMenu(Menus.Sample);
 
         }
@@ -192,7 +194,7 @@ namespace Waits
             Menus menuToLoad = Menus.Sample;
             foreach (IRenderable gameObject in objectList)
             {
-                
+
                 if (gameObject.Position == CurrentSelection)
                 {
                     if (gameObject is MainCharacter)
@@ -292,6 +294,7 @@ namespace Waits
                 symbol = townHallIcon;
             }
             Console.Write(symbol);
+
         }
 
         public static void DrawMenu(Menus choice)
@@ -299,13 +302,43 @@ namespace Waits
             // To be properly implemented
             int left = Console.BufferWidth - MenuWidth;
             int top = 2;
+
             string[] menu = LoadMenu(choice);
-            for (int i = 0; i < menu.Length ; i++)
-			{
-			 
+
+            string[] addition = {};
+            switch(choice)
+            {
+                case Menus.MainCharacter:
+                    addition = objectList.Where(o => (o is MainCharacter)).ElementAt(0).ToString().Split('\n');
+                    break;
+                case Menus.TownHall:
+                    addition = objectList.Where(o => (o is TownHall)).ElementAt(0).ToString().Split('\n');
+                    break;
+                case Menus.Granny:
+                    addition = objectList.Where(o => (o is Grandmother)).ElementAt(0).ToString().Split('\n');
+                    break;
+                case Menus.House:
+                    addition = objectList.Where(o => (o is House)).ElementAt(0).ToString().Split('\n');
+                    break;
+                case Menus.Pub:
+                    addition = objectList.Where(o => (o is Pub)).ElementAt(0).ToString().Split('\n');
+                    break;
+            }
+
+            int i = 0;
+            while (i < menu.Length)
+            {
                 Console.SetCursorPosition(left + 2, top + i);
                 Console.Write(menu[i]);
-			}
+                i++;
+            }
+            for (int j = 0; j < addition.Length; j++)
+            {
+                Console.SetCursorPosition(left + 2, top + i);
+                Console.Write("\t" + addition[j]);
+                i++;
+            }
+            
         }
 
         private static void ClearMenu()
@@ -332,5 +365,14 @@ namespace Waits
             return sr.ReadToEnd().Split('\n');
         }
 
+        public static void ReloadObjects()
+        {
+            foreach (IRenderable building in objectList)
+            {
+                if (!(building is MainCharacter))
+                    DrawObject(building);
+            }
+
+        }
     }
 }

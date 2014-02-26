@@ -22,6 +22,18 @@ namespace Waits
             return false;
         }
 
+        public bool CanSell(MainCharacter wait)
+        {
+            if (wait.BagIsFull() == true || CheckForBagels(wait) == false)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         public string SellRakia(MainCharacter hero)
         {
             if (CheckForBagels(hero))
