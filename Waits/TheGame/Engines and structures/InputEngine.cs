@@ -53,7 +53,9 @@ namespace Waits
                 case keyS:
                     IRenderable houseCheck = GridDrawer.objectList.Where(o => (o.Position == GridDrawer.CurrentSelection)).FirstOrDefault();
                     if (houseCheck is House)
-                        InteractionManager.HouseInteraction(houseCheck as House, hero);
+                    {
+                        bool a = InteractionManager.HouseInteraction(houseCheck as House, hero);
+                    }
                     break;
 
                 case keyT:
