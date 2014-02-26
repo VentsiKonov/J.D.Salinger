@@ -14,5 +14,13 @@ namespace Waits
         {
         }
         public abstract IBuyable Buy(int bagalMoney);
+
+        public override string ToString()
+        {
+            var output = base.ToString();
+            output += "Use: ...";
+
+            return output;
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,19 +9,22 @@ namespace Waits
     public class Gega: UprgradingItem, IBuyable
     {
         //Using singleton design pattern.
-        private static readonly Gega SingleGega;
+        private static Gega SingleGega;
         private const string GegaName = "Gega of Awesomeness";
         private const int GegaPriceInBagels = 10;
 
         private Gega()
             : base(GegaName, GegaPriceInBagels)
-        {
-        }
+        { }
 
         public static Gega GegaInstance
         {
             get
             {
+                if (SingleGega == null)
+                {
+                    SingleGega = new Gega();
+                }
                 return SingleGega;
             }
         }

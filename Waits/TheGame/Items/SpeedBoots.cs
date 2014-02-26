@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,19 +9,22 @@ namespace Waits
     public class SpeedBoots: UprgradingItem, IBuyable
     {
         //Using singleton design pattern.
-        private static readonly SpeedBoots SingleBoots;
+        private static SpeedBoots SingleBoots;
         private const string BootsName = "Carvuli";
         private const int BootsPriceInBagels = 8;
 
         private SpeedBoots()
             : base(BootsName, BootsPriceInBagels)
-        {
-        }
+        { }
 
         public static SpeedBoots BootsInstance
         {
             get
             {
+                if (SingleBoots == null)
+                {
+                    SingleBoots = new SpeedBoots();
+                }
                 return SingleBoots;
             }
         }
