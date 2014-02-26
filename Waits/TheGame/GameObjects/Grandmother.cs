@@ -8,7 +8,6 @@ namespace Waits
 {
     public class Grandmother : Character
     {
-
         public override void Move(MatrixCoords changeWith)
         {
             throw new NotImplementedException();

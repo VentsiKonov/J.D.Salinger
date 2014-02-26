@@ -8,6 +8,11 @@ namespace Waits
 {
     class Pub : Building, IRenderable
     {
+        public Pub(MatrixCoords position)
+            : base("Pub", position)
+        {
+            // empty
+        }
         public bool CheckForBagels(MainCharacter hero)
         {
             if (hero.BagelCount >= 20)
@@ -35,10 +40,5 @@ namespace Waits
             return "You don't have enough bagels to buy rakia.";
         }
 
-        public Pub(MatrixCoords position)
-            : base("Pub", position)
-        {
-            // empty
-        }
     }
 }
