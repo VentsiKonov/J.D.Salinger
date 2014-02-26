@@ -302,13 +302,43 @@ namespace Waits
             // To be properly implemented
             int left = Console.BufferWidth - MenuWidth;
             int top = 2;
-            string[] menu = LoadMenu(choice);
-            for (int i = 0; i < menu.Length; i++)
-            {
 
+            string[] menu = LoadMenu(choice);
+
+            string[] addition = {};
+            switch(choice)
+            {
+                case Menus.MainCharacter:
+                    addition = objectList.Where(o => (o is MainCharacter)).ElementAt(0).ToString().Split('\n');
+                    break;
+                case Menus.TownHall:
+                    addition = objectList.Where(o => (o is TownHall)).ElementAt(0).ToString().Split('\n');
+                    break;
+                case Menus.Granny:
+                    addition = objectList.Where(o => (o is Grandmother)).ElementAt(0).ToString().Split('\n');
+                    break;
+                case Menus.House:
+                    addition = objectList.Where(o => (o is House)).ElementAt(0).ToString().Split('\n');
+                    break;
+                case Menus.Pub:
+                    addition = objectList.Where(o => (o is Pub)).ElementAt(0).ToString().Split('\n');
+                    break;
+            }
+
+            int i = 0;
+            while (i < menu.Length)
+            {
                 Console.SetCursorPosition(left + 2, top + i);
                 Console.Write(menu[i]);
+                i++;
             }
+            for (int j = 0; j < addition.Length; j++)
+            {
+                Console.SetCursorPosition(left + 2, top + i);
+                Console.Write("\t" + addition[j]);
+                i++;
+            }
+            
         }
 
         private static void ClearMenu()
@@ -339,10 +369,10 @@ namespace Waits
         {
             foreach (IRenderable building in objectList)
             {
-                if(!(building is MainCharacter))
+                if (!(building is MainCharacter))
                     DrawObject(building);
             }
-            
+
         }
     }
 }
