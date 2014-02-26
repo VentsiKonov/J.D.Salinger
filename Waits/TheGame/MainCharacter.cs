@@ -14,10 +14,12 @@ namespace Waits
         public MainCharacter(string name, Sex sex, MatrixCoords position, List<ISellable> itemList, List<Song> initialSongList)
             : base(name, sex, position)
         {
+            initialSongList.Add(Song.OiKoledo);
             this.PlayerChar = MainChar;
             this.BagelCount = InitialBagelCount;
             this.Upgrades = new List<IBuyable>();
             this.WaitSongs = initialSongList;
+
             this.BagelsCaringCapacity = InitialBagelCount;
 
             if (itemList == null)
