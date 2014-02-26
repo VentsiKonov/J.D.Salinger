@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Waits.Engines_and_structures
+namespace Waits
 {
-    class InteractionManager
+    public static class InteractionManager
     {
         private const int GrannyTakeBagels = 2; //How many bagels a granny can take.
-        public void HouseInteraction(House house, MainCharacter wait)
+        public static void HouseInteraction(House house, MainCharacter wait)
         {
             if (wait.HasSong(house.SongRequest))
             {
@@ -23,7 +23,7 @@ namespace Waits.Engines_and_structures
 	        }
         }
         
-        public void RewardWait(MainCharacter wait, bool hasBonus) //If bonus = true, hero has the favorite song
+        public static void RewardWait(MainCharacter wait, bool hasBonus) //If bonus = true, hero has the favorite song
         {
             wait.BagelCount += wait.WaitSongs.Count;
 
@@ -33,7 +33,7 @@ namespace Waits.Engines_and_structures
             }
         }
 
-        public void GrannyInteraction(Grandmother granny, MainCharacter wait)
+        public static void GrannyInteraction(Grandmother granny, MainCharacter wait)
         {
             Song newSong = granny.GetSong;
 

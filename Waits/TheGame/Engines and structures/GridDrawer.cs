@@ -332,7 +332,7 @@ namespace Waits
                 Console.Write(menu[i]);
                 i++;
             }
-            for (int j = 0; j < addition.Length; j++)
+            for (int j = 0; j < addition.Length-1; j++)
             {
                 Console.SetCursorPosition(left + 2, top + i);
                 Console.Write("\t" + addition[j]);
