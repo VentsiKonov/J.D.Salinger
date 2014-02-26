@@ -77,5 +77,40 @@ namespace Waits
 
             return hasSong;
         }
+
+        public override string ToString()
+        {
+            var output = new StringBuilder();
+
+            output.AppendFormat("Bagels carried: {0}\n\n", this.BagelCount);
+
+            output.AppendLine("Bag contents:");
+            int applesCount = CountApplesInBag();
+            int oshavCount = this.Bag.Count - applesCount;
+            output.AppendFormat("Apples: {0}\n", applesCount);
+            output.AppendFormat("Oshav: {0}\n\n", oshavCount);
+
+            output.AppendLine("Upgrading items: ");
+            foreach (var item in this.Upgrades)
+            {
+                output.AppendLine(item.GetType().Name);
+            }
+
+            return output.ToString();
+        }
+
+        private int CountApplesInBag()
+        {
+            int applesCount = 0;
+            foreach (var item in this.Bag)
+            {
+                if (item is Apple)
+                {
+                    applesCount++;
+                }
+            }
+
+            return applesCount;
+        }
     }
 }
