@@ -8,6 +8,6 @@ namespace Waits
 {
     public interface IUpgradable
     {
-        void Upgrade(IUpgrader item);
+        void Upgrade(IBuyable item);
     }
 }

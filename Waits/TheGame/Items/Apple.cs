@@ -8,5 +8,15 @@ namespace Waits
 {
     public class Apple : SellableItem, ISellable
     {
+        private const int ApplePriceInBagels = 5;
+        public Apple()
+            : base(ApplePriceInBagels)
+        {
+        }
+
+        public override int Sell()
+        {
+            return ApplePriceInBagels;
+        }
     }
 }

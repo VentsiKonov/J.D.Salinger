@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    public interface IUpgrader
+    public interface IBuyable
     {
-        bool IsUsed { get; set; }
+        int Price { get; set; }
+        IBuyable Buy(int bagalMoney);
     }
 }

@@ -9,7 +9,6 @@ namespace Waits
     public interface ISellable
     {
         int Price { get; set; }
-
         int Sell();
     }
 }

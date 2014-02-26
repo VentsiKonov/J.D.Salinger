@@ -8,11 +8,12 @@ namespace Waits
 {
     public abstract class Item : GameObject
     {
-        private int price;
-
-        public Item(string name)
+        public Item(string name, int price)
             : base (name)
         {
-        }        
+            this.Price = price;
+        }
+        public int Price { get; set; }
+
     }
 }

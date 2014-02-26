@@ -8,5 +8,14 @@ namespace Waits
 {
     public class Oshav : SellableItem, ISellable
     {
+        private const int OshavPriceInBagels = 5;
+        public Oshav()
+            : base(OshavPriceInBagels)
+        {
+        }
+        public override int Sell()
+        {
+            return OshavPriceInBagels;
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace Waits
         {
             this.PlayerChar = MainChar;
             this.BagelCount = InitialBagelCount;
-            this.Upgrades = new List<IUpgrader>();
+            this.Upgrades = new List<IBuyable>();
             this.BagelsCaringCapacity = InitialBagelCount;
 
             if (itemList == null)
@@ -30,7 +30,7 @@ namespace Waits
         }
 
         public int BagelCount { get; set; }
-        public List<IUpgrader> Upgrades { get; set; }
+        public List<IBuyable> Upgrades { get; set; }
         public List<ISellable> Bag { get; set; }
         public int BagelsCaringCapacity { get; set; }
 
@@ -43,7 +43,7 @@ namespace Waits
             return false;
         }
 
-        public void Upgrade(IUpgrader item)
+        public void Upgrade(IBuyable item)
         {
             //TODO: Upgrade character.
             this.Upgrades.Add(item);

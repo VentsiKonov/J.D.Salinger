@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    public abstract class UprgradingItem : Item, IUpgrader
+    public abstract class UprgradingItem : Item, IBuyable
+
     {
-        public UprgradingItem(string name)
-            : base(name)
+        public UprgradingItem(string name, int price)
+            : base(name, price)
         {
-            this.IsUsed = false;
         }
-        public bool IsUsed { get; set; }
+        public abstract IBuyable Buy(int bagalMoney);
     }
 }

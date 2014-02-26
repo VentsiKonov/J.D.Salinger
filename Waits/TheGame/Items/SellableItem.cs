@@ -8,17 +8,11 @@ namespace Waits
 {
     public abstract class SellableItem : Item, ISellable
     {
-        public SellableItem(string name, int price)
-            : base (name)
+        public SellableItem(int price)
+            : base ("sellable", price)
+            //Sellable items dont neeed an explicit name.
         {
-            this.Price = price;
         }
-
-        public int Price { get; set; }
-
-        public int Sell()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract int Sell();
     }
 }

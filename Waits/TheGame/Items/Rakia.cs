@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    public class Rakia : SellableItem, ISellable
+    public class Rakia : Item, IBuyable
     {
-        private const int GrozdovaPrice = 20;
-        private const int SlivovaPrice = 40;
-        private const int KaisievaPrice = 60;
+        private const int GrozdovaPriceInBagels = 20;
+        private const int SlivovaPriceInBagels = 40;
+        private const int KaisievaPriceInBagels = 60;
         public Rakia(string name, RakiaType rakiaType)
             : base(name, 0)
         {
@@ -23,15 +23,34 @@ namespace Waits
         {
             if (rakia.Equals(RakiaType.Grozdova))
             {
-                return GrozdovaPrice;
+                return GrozdovaPriceInBagels;
             }
             else if (rakia.Equals(RakiaType.Slivova))
             {
-                return SlivovaPrice;
+                return SlivovaPriceInBagels;
             }
             else
             {
-                return KaisievaPrice;
+                return KaisievaPriceInBagels;
+            }
+        }
+        public IBuyable Buy(int bagelMoney)
+        {
+            if (bagelMoney == GrozdovaPriceInBagels)
+            {
+                return new Rakia("Grozdova", RakiaType.Grozdova);
+            }
+            if (bagelMoney == SlivovaPriceInBagels)
+            {
+                return new Rakia("Slivova", RakiaType.Slivova);
+            }
+            if (bagelMoney == KaisievaPriceInBagels)
+            {
+                return new Rakia("Kaisieva", RakiaType.Kaisieva);
+            }
+            else
+            {
+                throw new InvalidMoneyAmountException(this.Price);
             }
         }
     }

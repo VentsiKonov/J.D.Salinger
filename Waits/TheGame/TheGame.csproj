@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InvalidMoneyAmountException.cs" />
     <Compile Include="Items\Apple.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="GameObjects\GameObject.cs" />
@@ -59,7 +60,7 @@
     <Compile Include="Interfaces\ISellable.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Interfaces\IUpgradable.cs" />
-    <Compile Include="Interfaces\IUpgrader.cs" />
+    <Compile Include="Interfaces\IBuyable.cs" />
     <Compile Include="MainCharacter.cs" />
     <Compile Include="GameObjects\MarketPlace.cs" />
     <Compile Include="Engines and structures\MatrixCoords.cs" />
@@ -83,6 +84,7 @@
     <None Include="WaitsClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Initial screen.txt" />
     <Content Include="Menus\SampleMenu.txt" />
     <Content Include="SongStorage\song3.mp3" />
     <Content Include="SongStorage\song4.mp3" />
