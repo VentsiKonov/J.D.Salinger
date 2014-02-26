@@ -389,5 +389,11 @@ namespace Waits
             }
             Console.Clear();
         }
+
+        public static void PrintMessage(string message)
+        {
+            Console.SetCursorPosition(Console.WindowWidth - MenuWidth + 2, Console.WindowHeight - 10);
+            Console.Write(message);
+        }
     }
 }
