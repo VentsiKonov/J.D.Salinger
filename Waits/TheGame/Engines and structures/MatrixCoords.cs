@@ -28,6 +28,16 @@ namespace Waits
             return new MatrixCoords(a.Row - b.Row, a.Col - b.Col);
         }
 
+        public static bool operator ==(MatrixCoords a, MatrixCoords b)
+        {
+            return ((a.Col == b.Col) && (a.Row == b.Row));
+        }
+
+        public static bool operator !=(MatrixCoords a, MatrixCoords b)
+        {
+            return ((a.Col != b.Col) || (a.Row != b.Row));
+        }
+
         public override bool Equals(object obj)
         {
             MatrixCoords objAsMatrixCoords = (MatrixCoords)obj;

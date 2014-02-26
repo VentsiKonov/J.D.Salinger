@@ -11,8 +11,9 @@
         static void Main()
         {
             MainCharacter hero = new MainCharacter("User", Sex.Male, new MatrixCoords(0, 3), new List<ISellable>());
-            
-            GridDrawer.Init(new IRenderable[] { hero});
+            TownHall hall = new TownHall(new MatrixCoords(4, 4));
+
+            GridDrawer.Init();
             while (true)
             {
                 InputEngine.UserInput(hero);

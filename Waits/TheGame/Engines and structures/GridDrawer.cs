@@ -22,13 +22,17 @@ namespace Waits
         public enum Menus{
             Sample,
             House,
-            Pub
+            Pub,
+            Granny,
+            TownHall,
+            MainCharacter
         };
 
         private readonly static char heroIcon = 'K';
         private readonly static char houseIcon = 'H';
         private readonly static char pubIcon = 'P';
         private readonly static char grannyIcon = 'G';
+        private readonly static char townHallIcon = 'T';
 
         public static bool MenuVisible { get; private set; }
 
@@ -41,15 +45,14 @@ namespace Waits
         }
 
 
-        public static List<GameObject> objectList = new List<GameObject>();
+        public static List<IRenderable> objectList = new List<IRenderable>();
 
-        public static void Init(params IRenderable[] objects)
+        public static void Init()
         {
             // initialization
 
             Rows = SizeX;
             Cols = SizeY;
-            objectList = new List<GameObject>();
 
             Console.WindowHeight = Rows * 4 + 4;
             Console.WindowWidth = Cols * 6 + 2 + MenuWidth;
@@ -63,18 +66,19 @@ namespace Waits
 
             Calc();
 
-            InitialDraw();
+            DrawGridAndFrames();
 
-            foreach (IRenderable drawable in objects)
+            foreach (IRenderable drawable in objectList)
             {
                 DrawObject(drawable);
             }
 
             Select(new MatrixCoords(0, 0)); // Initial selection coordinates
+            DrawMenu(Menus.Sample);
 
         }
 
-        public static void InitialDraw()
+        public static void DrawGridAndFrames()
         {
             StringBuilder result = new StringBuilder();
             for (int row = 0; row < theMatrix.GetLength(0); row++)
@@ -107,7 +111,6 @@ namespace Waits
             }
 
             Console.WriteLine(result.ToString());
-
 
         }
 
@@ -185,6 +188,37 @@ namespace Waits
             CurrentSelection = coordinates;
             DrawCurrentSelection();
             ClearMenu();
+
+            Menus menuToLoad = Menus.Sample;
+            foreach (IRenderable gameObject in objectList)
+            {
+                
+                if (gameObject.Position == CurrentSelection)
+                {
+                    if (gameObject is MainCharacter)
+                    {
+                        menuToLoad = Menus.MainCharacter;
+                    }
+                    else if (gameObject is House)
+                    {
+                        menuToLoad = Menus.House;
+                    }
+                    else if (gameObject is Grandmother)
+                    {
+                        menuToLoad = Menus.Granny;
+                    }
+                    else if (gameObject is Pub)
+                    {
+                        menuToLoad = Menus.Pub;
+                    }
+                    else if (gameObject is TownHall)
+                    {
+                        menuToLoad = Menus.TownHall;
+                    }
+                    break;
+                }
+            }
+            DrawMenu(menuToLoad);
         }
 
         private static void ClearCurrentSelection()
@@ -241,18 +275,22 @@ namespace Waits
             {
                 symbol = heroIcon;
             }
-            //  else if (objectToDraw is House)
-            //  {
-            //      symbol = houseIcon;
-            //  }
-            //  else if (objectToDraw is Grandmother)   !!! Uncomment when classes are done!
-            //  {
-            //      symbol = grannyIcon;
-            //  }
-            //  else if (objectToDraw is Pub)
-            //  {
-            //      symbol = pubIcon;
-            //  }
+            else if (objectToDraw is House)
+            {
+                symbol = houseIcon;
+            }
+            else if (objectToDraw is Grandmother)
+            {
+                symbol = grannyIcon;
+            }
+            else if (objectToDraw is Pub)
+            {
+                symbol = pubIcon;
+            }
+            else if (objectToDraw is TownHall)
+            {
+                symbol = townHallIcon;
+            }
             Console.Write(symbol);
         }
 
@@ -290,7 +328,7 @@ namespace Waits
 
         private static string[] LoadMenu(Menus choice)
         {
-            StreamReader sr = new StreamReader("../../menus/" + choice.ToString() + "Menu.txt");
+            StreamReader sr = new StreamReader("../../menus/" + choice.ToString() + ".txt");
             return sr.ReadToEnd().Split('\n');
         }
 

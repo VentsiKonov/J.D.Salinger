@@ -27,14 +27,12 @@ namespace Waits
                     if (current.Row >= 1)
                     {
                         GridDrawer.Select(new MatrixCoords(current.Row - 1, current.Col));
-                        GridDrawer.DrawMenu(GridDrawer.Menus.Sample);
                     }
                     break;
                 case keyDown:
                     if (current.Row < GridDrawer.Rows - 1)
                     {
                         GridDrawer.Select(new MatrixCoords(current.Row + 1, current.Col));
-                        GridDrawer.DrawMenu(GridDrawer.Menus.Sample);
 
                     }
                     break;
@@ -42,7 +40,6 @@ namespace Waits
                     if (current.Col >= 1)
                     {
                         GridDrawer.Select(new MatrixCoords(current.Row, current.Col - 1));
-                        GridDrawer.DrawMenu(GridDrawer.Menus.Sample);
 
                     }
                     break;
@@ -50,7 +47,6 @@ namespace Waits
                     if (current.Col < GridDrawer.Cols - 1)
                     {
                         GridDrawer.Select(new MatrixCoords(current.Row, current.Col + 1));
-                        GridDrawer.DrawMenu(GridDrawer.Menus.Sample);
 
                     }
                     break;

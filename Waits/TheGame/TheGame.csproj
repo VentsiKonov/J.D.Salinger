@@ -85,7 +85,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Initial screen.txt" />
-    <Content Include="Menus\SampleMenu.txt" />
+    <Content Include="Menus\Granny.txt" />
+    <Content Include="Menus\House.txt" />
+    <Content Include="Menus\MainCharacter.txt" />
+    <Content Include="Menus\TownHall.txt" />
+    <Content Include="Menus\Pub.txt" />
+    <Content Include="Menus\Sample.txt" />
     <Content Include="SongStorage\song3.mp3" />
     <Content Include="SongStorage\song4.mp3" />
     <Content Include="SongStorage\song5.mp3" />
