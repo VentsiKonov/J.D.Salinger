@@ -16,6 +16,7 @@ namespace Waits
         private const ConsoleKey keyS = ConsoleKey.S;
         private const ConsoleKey keyM = ConsoleKey.M;
         private const ConsoleKey keyT = ConsoleKey.T;
+        private const ConsoleKey keyI = ConsoleKey.I;
 
         public static void UserInput(MainCharacter hero)
         {
@@ -54,14 +55,29 @@ namespace Waits
                     IRenderable houseCheck = GridDrawer.objectList.Where(o => (o.Position == GridDrawer.CurrentSelection)).FirstOrDefault();
                     if (houseCheck is House)
                     {
-                        bool a = InteractionManager.HouseInteraction(houseCheck as House, hero);
+                        if (InteractionManager.HouseInteraction(houseCheck as House, hero))
+                        {
+                            GridDrawer.PrintMessage("You knew the song! You obtained 1 bagel!");
+                        }
+                        else
+                        {
+                            GridDrawer.PrintMessage("You don't know the required song!");
+                        }
                     }
                     break;
 
                 case keyT:
                     IRenderable grannyCheck = GridDrawer.objectList.Where(o => (o.Position == GridDrawer.CurrentSelection)).FirstOrDefault();
                     if (grannyCheck is Grandmother)
-                        InteractionManager.GrannyInteraction(grannyCheck as Grandmother, hero);
+                        if (InteractionManager.GrannyInteraction(grannyCheck as Grandmother, hero))
+                        {
+                            GridDrawer.PrintMessage("Granny learned you a new song!");
+                            GridDrawer.PrintMessage("You gave her 2 bagels!", 1);
+                        }
+                        else
+                        {
+                            GridDrawer.PrintMessage("For some reason you didn't learn a song!");
+                        }
                     break;
                 case keyM:
                     IRenderable[] objects = GridDrawer.objectList.Where(o => (o.Position == GridDrawer.CurrentSelection)).ToArray();
@@ -71,6 +87,21 @@ namespace Waits
                         hero.Move(GridDrawer.CurrentSelection);
                     }
                     break;
+                case keyI:
+                    IRenderable marketCheck = GridDrawer.objectList.Where(o => (o.Position == GridDrawer.CurrentSelection)).FirstOrDefault();
+                    if (marketCheck is MarketPlace)
+                    {
+                        if (InteractionManager.MarketInterraction(marketCheck as MarketPlace, hero))
+                        {
+                            GridDrawer.PrintMessage("Interaction successfull!");
+                        }
+                        else
+                        {
+                            GridDrawer.PrintMessage("Interaction unsuccessfull!");
+                        }
+                    }
+                    break;
+
                 default:
                     // Empty
                     break;

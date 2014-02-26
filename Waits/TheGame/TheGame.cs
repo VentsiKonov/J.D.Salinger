@@ -15,6 +15,8 @@
 
             Grandmother hall = new Grandmother("baba", Sex.Female, new MatrixCoords(4, 4));
 
+            MarketPlace market = new MarketPlace("market", new MatrixCoords(7, 7));
+
             House house = new House("nane", new MatrixCoords(3,7), 2);
 
             GridDrawer.Init();

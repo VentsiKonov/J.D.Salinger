@@ -27,7 +27,8 @@ namespace Waits
             Pub,
             Granny,
             TownHall,
-            MainCharacter
+            MainCharacter,
+            Market
         };
 
 
@@ -36,6 +37,7 @@ namespace Waits
         private readonly static char pubIcon = 'P';
         private readonly static char grannyIcon = 'G';
         private readonly static char townHallIcon = 'T';
+        private readonly static char marketIcon = 'M';
 
         public static bool MenuVisible { get; private set; }
 
@@ -218,6 +220,10 @@ namespace Waits
                     {
                         menuToLoad = Menus.TownHall;
                     }
+                    else if (gameObject is MarketPlace)
+                    {
+                        menuToLoad = Menus.Market;
+                    }
                     break;
                 }
             }
@@ -294,6 +300,10 @@ namespace Waits
             {
                 symbol = townHallIcon;
             }
+            else if (objectToDraw is MarketPlace)
+            {
+                symbol = marketIcon;
+            }
             Console.Write(symbol);
 
         }
@@ -347,7 +357,7 @@ namespace Waits
             int left = Console.BufferWidth - MenuWidth;
             int top = 2;
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < Console.WindowHeight - 4 - top; i++)
             {
                 Console.SetCursorPosition(left, top + i);
                 Console.Write(new string(specialCharsS[11], MenuWidth - 5));
@@ -390,9 +400,9 @@ namespace Waits
             Console.Clear();
         }
 
-        public static void PrintMessage(string message)
+        public static void PrintMessage(string message, int offsetTop = 0)
         {
-            Console.SetCursorPosition(Console.WindowWidth - MenuWidth + 2, Console.WindowHeight - 10);
+            Console.SetCursorPosition(Console.WindowWidth - MenuWidth + 2, Console.WindowHeight - 10 + offsetTop);
             Console.Write(message);
         }
     }
