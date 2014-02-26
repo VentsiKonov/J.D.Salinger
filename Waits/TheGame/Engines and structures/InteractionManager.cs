@@ -41,9 +41,14 @@ namespace Waits
 
         public static bool GrannyInteraction(Grandmother granny, MainCharacter wait)
         {
+            if (!CheckPosition(granny, wait))
+            {
+                return false;
+            }
+
             Song newSong = granny.GetSong;
            
-            if (CheckPosition(granny, wait) && !wait.HasSong(newSong))
+            if (!wait.HasSong(newSong))
             {
                 if (wait.CheckedForEnoughBagels(GrannyTakeBagels))
                 {
@@ -71,6 +76,23 @@ namespace Waits
 	        }
             return false;
         }
-       
+        
+        public static bool MarketInterraction(MarketPlace market, MainCharacter wait)
+        {
+            if (!CheckPosition(market, wait))
+            {
+                return false;
+            }
+
+            int moneyInObjects = 0;
+            foreach (var item in wait.Bag)
+            {
+                moneyInObjects += item.Price;
+            }
+            wait.Bag.Clear();
+            wait.BagelCount += moneyInObjects;
+            return true;
+        }
+
     }
 }
