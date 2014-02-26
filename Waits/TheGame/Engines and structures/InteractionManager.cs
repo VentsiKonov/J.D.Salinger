@@ -31,5 +31,23 @@ namespace Waits.Engines_and_structures
                 wait.BagelCount += House.Bonus;
             }
         }
+
+        public void GrannyInteraction(Grandmother granny, MainCharacter wait)
+        {
+            Song newSong = granny.GetSong;
+
+            if (wait.HasSong(newSong) == false)
+            {
+                switch (granny.WantsSomething())
+                {
+                    case 1:
+                        wait.AddToInventory(new Apple()); break;
+                    case 2:
+                        wait.AddToInventory(new Oshav()); break;
+                    default:
+                        break;
+                }
+            }
+        }
     }
 }
