@@ -28,7 +28,6 @@ namespace Waits
                 return SingleBoots;
             }
         }
-
         public override IBuyable Buy(int bagelMoney)
         {
             if (bagelMoney != BootsInstance.Price)
@@ -36,6 +35,18 @@ namespace Waits
                 throw new InvalidMoneyAmountException(this.Price);
             }
             return BootsInstance;
+        }
+        public override string ToString()
+        {
+            var output = new StringBuilder();
+            var baseString = base.ToString();
+
+            output.Append(baseString);
+            output.AppendLine("Use: The speed boots are used to allow");
+            output.AppendLine("the wait to make more moves on the board");
+            output.AppendLine("without having to eat bagels.");
+
+            return output.ToString();
         }
     }
 }
