@@ -85,7 +85,6 @@
     <None Include="WaitsClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Initial screen.txt" />
     <Content Include="Menus\Granny.txt" />
     <Content Include="Menus\House.txt" />
     <Content Include="Menus\MainCharacter.txt" />
