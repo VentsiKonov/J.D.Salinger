@@ -13,14 +13,23 @@ namespace Waits.Engines_and_structures
             if (wait.HasSong(house.FavoriteSong))
             {
                 PlayerMP3.Play(house.FavoriteSong);
+                RewardWait(wait, true);
             }
             else
 	        {
-                PlayerMP3.Play(wait.HeroSongs[HeroSongs.Count - 1]);
+                PlayerMP3.Play(wait.WaitSongs[WaitSongs.Count - 1]);
+                RewardWait(wait, false);
 	        }
         }
         
-        public RewardHero()
+        public void RewardWait(MainCharacter wait, bool hasBonus) //If bonus = true, hero has the favorite song
+        {
+            wait.BagelCount += wait.Songs.Count;
 
+            if (hasBonus == true)
+            {
+                wait.BagelCount += House.Bonus;
+            }
+        }
     }
 }
