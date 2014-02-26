@@ -37,5 +37,13 @@ namespace Waits
             }
             return GegaInstance;
         }
+
+        public override string ToString()
+        {
+            var output = base.ToString();
+            output += "Use: The gega is used to increase the carring capacity of the wait.";
+
+            return output;
+        }
     }
 }
