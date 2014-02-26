@@ -30,9 +30,15 @@ namespace Waits
                     //Choose rakia type method.
                     //hero.Bag.Add();
                     return "Sell completed!";
-                }                
+                }
             }
             return "You don't have enough bagels to buy rakia.";
+        }
+
+        public Pub(MatrixCoords position)
+            : base("Pub", position)
+        {
+            // empty
         }
     }
 }
