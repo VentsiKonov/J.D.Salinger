@@ -26,5 +26,11 @@ namespace Waits
         {
             return new char[,] {{this.TreeChar}};
         }
+
+
+        public void CommitToDrawer()
+        {
+            GridDrawer.objectList.Add(null);
+        }
     }
 }

@@ -27,14 +27,14 @@ namespace Waits
                     if (current.Row >= 1)
                     {
                         GridDrawer.Select(new MatrixCoords(current.Row - 1, current.Col));
-                        GridDrawer.ToggleMenu();
+                        GridDrawer.DrawMenu(GridDrawer.Menus.Sample);
                     }
                     break;
                 case keyDown:
                     if (current.Row < GridDrawer.Rows - 1)
                     {
                         GridDrawer.Select(new MatrixCoords(current.Row + 1, current.Col));
-                        GridDrawer.ToggleMenu();
+                        GridDrawer.DrawMenu(GridDrawer.Menus.Sample);
 
                     }
                     break;
@@ -42,25 +42,24 @@ namespace Waits
                     if (current.Col >= 1)
                     {
                         GridDrawer.Select(new MatrixCoords(current.Row, current.Col - 1));
-                        GridDrawer.ToggleMenu();
+                        GridDrawer.DrawMenu(GridDrawer.Menus.Sample);
+
                     }
                     break;
                 case keyRight:
                     if (current.Col < GridDrawer.Cols - 1)
                     {
                         GridDrawer.Select(new MatrixCoords(current.Row, current.Col + 1));
-                        GridDrawer.ToggleMenu();
+                        GridDrawer.DrawMenu(GridDrawer.Menus.Sample);
+
                     }
                     break;
                 case keyEnter:
                     //GridDrawer.ToggleMenu();
                     break;
                 case keyM:
-                    if (GridDrawer.MenuVisible)
-                    {
                         GridDrawer.ClearGridSymbol(hero.Position);
                         hero.Move(GridDrawer.CurrentSelection);
-                    }
                     break;
                 default:
                     // Empty

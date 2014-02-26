@@ -1,9 +1,12 @@
-﻿using System;
-using System.IO;
-using System.Text;
+﻿
 
 namespace Waits
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
+
     static class GridDrawer
     {
         private const int SizeX = 15;
@@ -15,7 +18,12 @@ namespace Waits
 
         private readonly static char[] specialCharsD = { '╔', '╦', '╗', '╠', '╬', '╣', '╚', '╩', '╝', '║', '═' };
         private readonly static char[] specialCharsS = { '┌', '┬', '┐', '├', '┼', '┤', '└', '┴', '┘', '│', '─', ' ' };
-        private readonly static string[] menus = { "SampleMenu" };
+        
+        public enum Menus{
+            Sample,
+            House,
+            Pub
+        };
 
         private readonly static char heroIcon = 'K';
         private readonly static char houseIcon = 'H';
@@ -32,13 +40,16 @@ namespace Waits
             private set;
         }
 
+
+        public static List<GameObject> objectList = new List<GameObject>();
+
         public static void Init(params IRenderable[] objects)
         {
             // initialization
 
             Rows = SizeX;
             Cols = SizeY;
-            MenuVisible = false;
+            objectList = new List<GameObject>();
 
             Console.WindowHeight = Rows * 4 + 4;
             Console.WindowWidth = Cols * 6 + 2 + MenuWidth;
@@ -96,6 +107,8 @@ namespace Waits
             }
 
             Console.WriteLine(result.ToString());
+
+
         }
 
         private static void Calc()
@@ -171,11 +184,7 @@ namespace Waits
             ClearCurrentSelection();
             CurrentSelection = coordinates;
             DrawCurrentSelection();
-            if (MenuVisible)
-            {
-                ClearMenu();
-                MenuVisible = false;
-            }
+            ClearMenu();
         }
 
         private static void ClearCurrentSelection()
@@ -247,18 +256,12 @@ namespace Waits
             Console.Write(symbol);
         }
 
-        public static void ToggleMenu()
-        {
-            DrawMenu();
-            MenuVisible = true;
-        }
-
-        private static void DrawMenu()
+        public static void DrawMenu(Menus choice)
         {
             // To be properly implemented
             int left = Console.BufferWidth - MenuWidth;
             int top = 2;
-            string[] menu = LoadMenu(menus[0]);
+            string[] menu = LoadMenu(choice);
             for (int i = 0; i < menu.Length ; i++)
 			{
 			 
@@ -285,9 +288,9 @@ namespace Waits
             Console.Write(specialCharsS[11]);
         }
 
-        private static string[] LoadMenu(string fileName)
+        private static string[] LoadMenu(Menus choice)
         {
-            StreamReader sr = new StreamReader("../../menus/" + fileName + ".txt");
+            StreamReader sr = new StreamReader("../../menus/" + choice.ToString() + "Menu.txt");
             return sr.ReadToEnd().Split('\n');
         }
 

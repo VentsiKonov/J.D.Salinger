@@ -17,7 +17,7 @@ namespace Waits
         public Grandmother(string name, Sex sex, MatrixCoords position)
             : base(name, sex, position)
         {
-            // empty
+
         }
     }
 }

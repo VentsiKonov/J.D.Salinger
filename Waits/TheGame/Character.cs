@@ -17,6 +17,7 @@ namespace Waits
             this.Name = name;
             this.sex = sex;
             this.Position = position;
+            this.CommitToDrawer();
         }
 
         public Sex Sex { get; set; }
@@ -27,11 +28,14 @@ namespace Waits
             return this.Position;
         }
 
-        public char[,] GetImage()
-        {
-            return new char[,] { { this.PlayerChar } };
-        }
 
         public abstract void Move(MatrixCoords newCoordinates);
+
+
+
+        public void CommitToDrawer()
+        {
+            GridDrawer.objectList.Add(this);
+        }
     }
 }

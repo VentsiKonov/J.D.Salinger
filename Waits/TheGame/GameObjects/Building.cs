@@ -13,12 +13,18 @@ namespace Waits
             : base(name)
         {
             this.Position = position;
+            this.CommitToDrawer();
         }
 
         public MatrixCoords Position { get; set; }
         public MatrixCoords GetTopLeftCoordOfPosition()
         {
             return this.Position;
+        }
+
+        public void CommitToDrawer()
+        {
+            GridDrawer.objectList.Add(this);
         }
 
         
