@@ -33,24 +33,20 @@ namespace Waits.Engines_and_structures
             }
         }
 
-        public void GrannyInteraction(Grandmother granny, MainCharacter wait)
+        public bool GrannyInteraction(Grandmother granny, MainCharacter wait)
         {
             Song newSong = granny.GetSong;
 
-            if (wait.HasSong(newSong) == false)
+            if (!wait.HasSong(newSong))
             {
-                switch (granny.WantsSomething())
+                if (wait.CheckedForEnoughBagels(GrannyTakeBagels))
                 {
-                    case 1:
-                        wait.BagelCount -= GrannyTakeBagels; break;
-                    case 2:
-                        wait.RemoveFromInventory(new Apple()); break;
-                    case 3:
-                        wait.RemoveFromInventory(new Oshav()); break;
-                    default:
-                        break;
+                    wait.BagelCount -= GrannyTakeBagels;
+                    wait.WaitSongs.Add(newSong);
+                    return true;
                 }
             }
+            return false;
         }
     }
 }

@@ -36,6 +36,15 @@ namespace Waits
         public List<Song> WaitSongs { get; set; }
         public int BagelsCaringCapacity { get; set; }
 
+        public bool CheckedForEnoughBagels(int bagelsRequested)
+        {
+            if (this.BagelCount > bagelsRequested)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public bool BagIsFull()
         {
             if (this.Bag.Count == 5)
