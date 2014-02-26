@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Waits
 {
-    class InteractionManager
+    public static class InteractionManager
     {
         private const int GrannyTakeBagels = 2; //How many bagels a granny can take.
-        public bool HouseInteraction(House house, MainCharacter wait)
+        public static bool HouseInteraction(House house, MainCharacter wait)
         {
+            if (!CheckPosition(house, wait))
+            {
+                return false;
+            }
+
             if (wait.HasSong(house.SongRequest))
             {
                 PlayerMP3.Play(house.SongRequest);
@@ -24,7 +29,7 @@ namespace Waits
             return true;
         }
         
-        public void RewardWait(MainCharacter wait, bool hasBonus) //If bonus = true, hero has the favorite song
+        public static void RewardWait(MainCharacter wait, bool hasBonus) //If bonus = true, hero has the favorite song
         {
             wait.BagelCount += wait.WaitSongs.Count;
 
@@ -34,7 +39,7 @@ namespace Waits
             }
         }
 
-        public bool GrannyInteraction(Grandmother granny, MainCharacter wait)
+        public static bool GrannyInteraction(Grandmother granny, MainCharacter wait)
         {
             Song newSong = granny.GetSong;
            
@@ -50,19 +55,17 @@ namespace Waits
             return false;
         }
 
-        private bool CheckPosition(Grandmother granny, MainCharacter wait)
+        private static bool CheckPosition(IRenderable item, MainCharacter wait)
         {
-            bool correctPosition = false;
- 	        
-            if ((granny.Position.Row == wait.Position.Row + 1 && granny.Position.Row == wait.Position.Row - 1)
-                && (granny.Position.Col == wait.Position.Col || granny.Position.Col == wait.Position.Col + 1 ||
-                    granny.Position.Col == wait.Position.Col - 1))
+            if ((item.Position.Row == wait.Position.Row + 1 || item.Position.Row == wait.Position.Row - 1)
+                && (item.Position.Col == wait.Position.Col || item.Position.Col == wait.Position.Col + 1 ||
+                    item.Position.Col == wait.Position.Col - 1))
 	        {
 		        return true;
 	        }
-            if ((granny.Position.Col == wait.Position.Col + 1 && granny.Position.Col == wait.Position.Col - 1)
-                && (granny.Position.Row == wait.Position.Row || granny.Position.Row == wait.Position.Row + 1 ||
-                    granny.Position.Row == wait.Position.Row - 1))
+            if ((item.Position.Col == wait.Position.Col + 1 || item.Position.Col == wait.Position.Col - 1)
+                && (item.Position.Row == wait.Position.Row || item.Position.Row == wait.Position.Row + 1 ||
+                    item.Position.Row == wait.Position.Row - 1))
 	        {
 		        return true;
 	        }
