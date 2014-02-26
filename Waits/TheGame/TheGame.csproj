@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InteractionManager.cs" />
+    <Compile Include="Engines and structures\InteractionManager.cs" />
     <Compile Include="InvalidMoneyAmountException.cs" />
     <Compile Include="Items\Apple.cs" />
     <Compile Include="Character.cs" />
