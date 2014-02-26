@@ -10,5 +10,6 @@ namespace Waits
     {
         MatrixCoords Position { get; set; } //Is actually the coordinates of the top leftmost char of the object.
         MatrixCoords GetTopLeftCoordOfPosition(); //Used as initial position for rendering.
+        void CommitToDrawer();
     }
 }

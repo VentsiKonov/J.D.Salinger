@@ -37,5 +37,6 @@ namespace Waits
             }
             return allRakiaPrice;
         }
+
     }
 }
