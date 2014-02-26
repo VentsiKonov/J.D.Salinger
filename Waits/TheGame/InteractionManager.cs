@@ -10,21 +10,21 @@ namespace Waits.Engines_and_structures
     {
         public void HouseInteraction(House house, MainCharacter wait)
         {
-            if (wait.HasSong(house.SongRequest))
+            if (wait.HasSong(house.FavoriteSong))
             {
-                PlayerMP3.Play(house.SongRequest);
+                PlayerMP3.Play(house.FavoriteSong);
                 RewardWait(wait, true);
             }
             else
 	        {
-                PlayerMP3.Play(wait.WaitSongs[wait.WaitSongs.Count - 1]);
+                PlayerMP3.Play(wait.WaitSongs[WaitSongs.Count - 1]);
                 RewardWait(wait, false);
 	        }
         }
         
         public void RewardWait(MainCharacter wait, bool hasBonus) //If bonus = true, hero has the favorite song
         {
-            wait.BagelCount += wait.WaitSongs.Count;
+            wait.BagelCount += wait.Songs.Count;
 
             if (hasBonus == true)
             {
