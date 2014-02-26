@@ -85,6 +85,7 @@
     <None Include="WaitsClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EndOFgame.txt" />
     <Content Include="Initial_screen.txt" />
     <Content Include="Menus\Granny.txt" />
     <Content Include="Menus\House.txt" />
