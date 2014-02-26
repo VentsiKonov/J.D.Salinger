@@ -11,12 +11,13 @@ namespace Waits
         private const char MainChar = (char)38;
         private const int InitialCapacity = 25;
         private const int InitialBagelCount = 15;
-        public MainCharacter(string name, Sex sex, MatrixCoords position, List<ISellable> itemList)
+        public MainCharacter(string name, Sex sex, MatrixCoords position, List<ISellable> itemList, List<Song> initialSongList)
             : base(name, sex, position)
         {
             this.PlayerChar = MainChar;
             this.BagelCount = InitialBagelCount;
             this.Upgrades = new List<IBuyable>();
+            this.WaitSongs = initialSongList;
             this.BagelsCaringCapacity = InitialBagelCount;
 
             if (itemList == null)
@@ -32,6 +33,7 @@ namespace Waits
         public int BagelCount { get; set; }
         public List<IBuyable> Upgrades { get; set; }
         public List<ISellable> Bag { get; set; }
+        public List<Song> WaitSongs { get; set; }
         public int BagelsCaringCapacity { get; set; }
 
         public bool BagIsFull()
@@ -49,6 +51,7 @@ namespace Waits
             this.Upgrades.Add(item);
         }
 
+        //Inventory holds apples and oshav.
         public void AddToInventory(ISellable item)
         {
             this.Bag.Add(item);
@@ -62,6 +65,17 @@ namespace Waits
         {
             this.Position = newCoordinates;
             GridDrawer.DrawObject(this);
+        }
+
+        public bool HasSong(Song checkedSong)
+        {
+            bool hasSong = false;
+            if (this.WaitSongs.Contains(checkedSong))
+            {
+                hasSong = true;
+            }
+
+            return hasSong;
         }
     }
 }
