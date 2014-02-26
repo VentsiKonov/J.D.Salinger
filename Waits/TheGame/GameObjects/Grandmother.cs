@@ -13,5 +13,11 @@ namespace Waits
         {
             throw new NotImplementedException();
         }
+
+        public Grandmother(string name, Sex sex, MatrixCoords position)
+            : base(name, sex, position)
+        {
+            // empty
+        }
     }
 }

@@ -287,7 +287,7 @@ namespace Waits
 
         private static string[] LoadMenu(string fileName)
         {
-            StreamReader sr = new StreamReader("../../" + fileName + ".txt");
+            StreamReader sr = new StreamReader("../../menus/" + fileName + ".txt");
             return sr.ReadToEnd().Split('\n');
         }
 

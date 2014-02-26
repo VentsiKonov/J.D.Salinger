@@ -8,23 +8,11 @@ namespace Waits
 {
     class TownHall : Building, IRenderable
     {
-        private const char TownHallChar = '\u2593';
-        public TownHall(MatrixCoords position, int height, int width)
-            : base (position, height, width)
+        private const string TownHallName = "Town Hall";
+        public TownHall(MatrixCoords position)
+            : base (TownHallName, position)
         { 
-        }
-
-        public override char[,] GetImage()
-        {
-            for (int row = 0; row < this.BuildingImage.GetLength(0); row++)
-            {
-                for (int col = 0; col < this.BuildingImage.GetLength(1); col++)
-                {
-                    this.BuildingImage[row, col] = TownHallChar;
-                }
-            }
-
-            return this.BuildingImage;
+            // empty
         }
 
         public bool DoYouWin(MainCharacter hero)
