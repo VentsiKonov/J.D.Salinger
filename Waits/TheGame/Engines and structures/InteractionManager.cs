@@ -85,11 +85,30 @@ namespace Waits
             }
 
             int moneyInObjects = 0;
-            foreach (var item in wait.Bag)
+            foreach (var item in wait.Bag.Where(i => i.GetType().Name != "Rakia"))
             {
                 moneyInObjects += item.Price;
+                wait.Bag.Remove(item);   
             }
-            wait.Bag.Clear();
+
+            if (!wait.Upgrades.Contains(Gega.GegaInstance))
+            {
+                if (wait.CheckedForEnoughBagels(Gega.GegaInstance.Price))
+                {
+                    wait.Upgrades.Add(Gega.GegaInstance);
+                    return true;
+                }
+            }
+
+            if (!wait.Upgrades.Contains(SpeedBoots.BootsInstance))
+            {
+                if (wait.CheckedForEnoughBagels(SpeedBoots.BootsInstance.Price))
+                {
+                    wait.Upgrades.Add(SpeedBoots.BootsInstance);
+                    return true;
+                }
+            }
+
             wait.BagelCount += moneyInObjects;
             return true;
         }
