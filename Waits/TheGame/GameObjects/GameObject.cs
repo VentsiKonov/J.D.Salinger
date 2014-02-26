@@ -22,6 +22,14 @@ namespace Waits
             this.Id = GameObject.GenerateObjectId();
         }
 
+        public static Random Randomiser
+        {
+            get
+            {
+                return random;
+            }
+        }
+
         public static string GenerateObjectId()
         {
 
