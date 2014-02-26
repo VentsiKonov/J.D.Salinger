@@ -47,7 +47,6 @@ namespace Waits
                     if (current.Col < GridDrawer.Cols - 1)
                     {
                         GridDrawer.Select(new MatrixCoords(current.Row, current.Col + 1));
-
                     }
                     break;
                 case keyS:
@@ -56,8 +55,8 @@ namespace Waits
                         InteractionManager.HouseInteraction(obj.ElementAt(0) as House, hero);
                     break;
                 case keyM:
-                        GridDrawer.ClearGridSymbol(hero.Position);
-                        hero.Move(GridDrawer.CurrentSelection);
+                    GridDrawer.ClearGridSymbol(hero.Position);
+                    hero.Move(GridDrawer.CurrentSelection);
                     break;
                 default:
                     // Empty
