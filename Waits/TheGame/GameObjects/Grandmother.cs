@@ -8,7 +8,7 @@ namespace Waits
 {
     public class Grandmother : Character
     {
-        public const int NumberOfItems = 2;
+        public const int NumberOfItems = 2; //The number of items a granny can want from you
 
         public override void Move(MatrixCoords changeWith)
         {
@@ -29,7 +29,6 @@ namespace Waits
                 Random randomSong = new Random();
                 return (Song)randomSong.Next(0, Enum.GetNames(typeof(Song)).Length);
             }
-            private set;
         }
 
         public int WantsSomething()
