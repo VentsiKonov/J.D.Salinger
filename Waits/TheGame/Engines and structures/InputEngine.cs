@@ -13,7 +13,7 @@ namespace Waits
         private const ConsoleKey keyDown = ConsoleKey.DownArrow;
         private const ConsoleKey keyRight = ConsoleKey.RightArrow;
         private const ConsoleKey keyLeft = ConsoleKey.LeftArrow;
-        private const ConsoleKey keyEnter = ConsoleKey.Enter;
+        private const ConsoleKey keyS = ConsoleKey.S;
         private const ConsoleKey keyM = ConsoleKey.M;
 
         public static void UserInput(MainCharacter hero)
@@ -47,15 +47,16 @@ namespace Waits
                     if (current.Col < GridDrawer.Cols - 1)
                     {
                         GridDrawer.Select(new MatrixCoords(current.Row, current.Col + 1));
-
                     }
                     break;
-                case keyEnter:
-                    //GridDrawer.ToggleMenu();
+                case keyS:
+                    IRenderable[] obj = GridDrawer.objectList.Where(o=>(o.Position == GridDrawer.CurrentSelection)).ToArray();
+                    if(obj.Length > 0)
+                        InteractionManager.HouseInteraction(obj.ElementAt(0) as House, hero);
                     break;
                 case keyM:
-                        GridDrawer.ClearGridSymbol(hero.Position);
-                        hero.Move(GridDrawer.CurrentSelection);
+                    GridDrawer.ClearGridSymbol(hero.Position);
+                    hero.Move(GridDrawer.CurrentSelection);
                     break;
                 default:
                     // Empty

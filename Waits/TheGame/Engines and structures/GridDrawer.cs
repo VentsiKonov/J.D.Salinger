@@ -30,6 +30,7 @@ namespace Waits
             MainCharacter
         };
 
+
         private readonly static char heroIcon = 'K';
         private readonly static char houseIcon = 'H';
         private readonly static char pubIcon = 'P';
@@ -332,7 +333,7 @@ namespace Waits
                 Console.Write(menu[i]);
                 i++;
             }
-            for (int j = 0; j < addition.Length; j++)
+            for (int j = 0; j < addition.Length-1; j++)
             {
                 Console.SetCursorPosition(left + 2, top + i);
                 Console.Write("\t" + addition[j]);
@@ -373,6 +374,20 @@ namespace Waits
                     DrawObject(building);
             }
 
+        }
+
+        public static void StartScreen()
+        {
+            Console.Clear();
+
+            StreamReader sr = new StreamReader("../../Initial_screen.txt");
+            Console.WriteLine(sr.ReadToEnd());
+            Console.WriteLine("Press any key");
+            while (!Console.KeyAvailable)
+            {
+
+            }
+            Console.Clear();
         }
     }
 }
