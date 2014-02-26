@@ -10,8 +10,8 @@ namespace Waits
 
     static class GridDrawer
     {
-        private const int SizeX = 15;
-        private const int SizeY = 15;
+        private static int SizeX;
+        private static int SizeY;
         private const int MenuWidth = 50;
 
         public static int Rows { get; private set; }
@@ -50,12 +50,12 @@ namespace Waits
         public static List<IRenderable> objectList = new List<IRenderable>();
 
 
-        public static void Init()
+        public static void Init(int sizeX = 15, int sizeY = 15)
         {
             // initialization
 
-            Rows = SizeX;
-            Cols = SizeY;
+            Rows = SizeX = sizeX;
+            Cols = SizeY = sizeY;
 
             Console.WindowHeight = Rows * 4 + 4;
             Console.WindowWidth = Cols * 6 + 2 + MenuWidth;
