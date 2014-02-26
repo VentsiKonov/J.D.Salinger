@@ -30,6 +30,7 @@ namespace Waits
             MainCharacter
         };
 
+
         private readonly static char heroIcon = 'K';
         private readonly static char houseIcon = 'H';
         private readonly static char pubIcon = 'P';
@@ -373,6 +374,20 @@ namespace Waits
                     DrawObject(building);
             }
 
+        }
+
+        public static void StartScreen()
+        {
+            Console.Clear();
+
+            StreamReader sr = new StreamReader("../../Initial_screen.txt");
+            Console.WriteLine(sr.ReadToEnd());
+            Console.WriteLine("Press any key");
+            while (!Console.KeyAvailable)
+            {
+
+            }
+            Console.Clear();
         }
     }
 }
