@@ -1,13 +1,10 @@
-﻿using System;
-using NAudio.Wave;
-
-namespace Waits
+﻿namespace Waits
 {
+    using System;
+    using NAudio.Wave;
 
     public static class PlayerMP3
     {
-
-
         private const int NUM_OF_SONGS = 10;
         private const string PATH = @"../../SongStorage/song";
         private const string EXT = @".mp3";
@@ -16,7 +13,7 @@ namespace Waits
         {
             using (DirectSoundOut output = new DirectSoundOut())
             {
-                using (Mp3FileReader reader = new Mp3FileReader(PATH + ((int)songNumber+1) + EXT))
+                using (Mp3FileReader reader = new Mp3FileReader(PATH + ((int)songNumber + 1) + EXT))
                 {
                     output.Init(reader);
                     output.Play();
@@ -26,7 +23,6 @@ namespace Waits
 
                     }
                 }
-
             }
         }
 
@@ -46,6 +42,5 @@ namespace Waits
 
             return songName[(int)songNumber];
         }
-
     }
 }
