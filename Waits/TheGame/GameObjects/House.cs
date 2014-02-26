@@ -8,7 +8,7 @@ namespace Waits
 {
     public class House : Building, IRenderable 
     {
-        public static const int Bonus = 5;
+        public const int Bonus = 5;
 
         public House(string name, MatrixCoords position, int songRequest)
             : base(name, position)
