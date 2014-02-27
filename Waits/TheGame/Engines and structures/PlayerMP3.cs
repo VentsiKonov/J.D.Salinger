@@ -18,6 +18,11 @@
                     output.Init(reader);
                     output.Play();
 
+                    while (output.PlaybackState != NAudio.Wave.PlaybackState.Stopped)
+                    {
+                        
+                    }
+
                     while (reader.Position < reader.Length && !Console.KeyAvailable)
                     {
 
