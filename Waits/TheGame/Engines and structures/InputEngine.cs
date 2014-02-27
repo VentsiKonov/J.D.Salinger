@@ -71,7 +71,7 @@ namespace Waits
                     if (grannyCheck is Grandmother)
                         if (InteractionManager.GrannyInteraction(grannyCheck as Grandmother, hero))
                         {
-                            GridDrawer.PrintMessage("Granny learned you a new song!");
+                            GridDrawer.PrintMessage("The granny taught you a new song!");
                             GridDrawer.PrintMessage("You gave her 2 bagels!", 1);
                         }
                         else

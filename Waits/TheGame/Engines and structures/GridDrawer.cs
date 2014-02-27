@@ -197,7 +197,6 @@ namespace Waits
             Menus menuToLoad = Menus.Sample;
             foreach (IRenderable gameObject in objectList)
             {
-
                 if (gameObject.Position == CurrentSelection)
                 {
                     if (gameObject is MainCharacter)
@@ -282,26 +281,32 @@ namespace Waits
             char symbol = ' ';
             if (objectToDraw is MainCharacter)
             {
+                Console.ForegroundColor = ConsoleColor.White;
                 symbol = heroIcon;
             }
             else if (objectToDraw is House)
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
                 symbol = houseIcon;
             }
             else if (objectToDraw is Grandmother)
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 symbol = grannyIcon;
             }
             else if (objectToDraw is Pub)
             {
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 symbol = pubIcon;
             }
             else if (objectToDraw is TownHall)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 symbol = townHallIcon;
             }
             else if (objectToDraw is MarketPlace)
             {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 symbol = marketIcon;
             }
             Console.Write(symbol);
@@ -311,6 +316,8 @@ namespace Waits
         public static void DrawMenu(Menus choice)
         {
             // To be properly implemented
+            Console.ForegroundColor = ConsoleColor.Gray;
+
             int left = Console.BufferWidth - MenuWidth;
             int top = 2;
 
@@ -344,12 +351,12 @@ namespace Waits
                 i++;
             }
             for (int j = 0; j < addition.Length-1; j++)
-            {
+            {                
                 Console.SetCursorPosition(left + 2, top + i);
                 Console.Write("\t" + addition[j]);
                 i++;
             }
-            
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
         }
 
         private static void ClearMenu()

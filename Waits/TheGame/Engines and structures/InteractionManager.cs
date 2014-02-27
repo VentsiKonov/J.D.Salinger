@@ -85,32 +85,46 @@ namespace Waits
             }
 
             int moneyInObjects = 0;
-            foreach (var item in wait.Bag.Where(i => i.GetType().Name != "Rakia"))
+            bool successfulTransaction = false;
+            var listItems = wait.Bag.FindAll((i) => i.GetType().Name != "Rakia");
+            for (int i = 0; i < listItems.Count; i++)
             {
-                moneyInObjects += item.Price;
-                wait.Bag.Remove(item);   
+                moneyInObjects += listItems[i].Price;
+                wait.Bag.Remove(listItems[i]);   
             }
 
             if (!wait.Upgrades.Contains(Gega.GegaInstance))
             {
-                if (moneyInObjects > Gega.GegaInstance.Price)
+                if (moneyInObjects >= Gega.GegaInstance.Price)
                 {
                     wait.Upgrades.Add(Gega.GegaInstance);
+                    if(moneyInObjects > Gega.GegaInstance.Price)
+                    {
+                        wait.BagelCount += moneyInObjects - Gega.GegaInstance.Price;
+                    }
                     return true;
                 }
             }
 
-            if (moneyInObjects > SpeedBoots.BootsInstance.Price)
+            if (!wait.Upgrades.Contains(SpeedBoots.BootsInstance))
             {
-                if (wait.CheckedForEnoughBagels(SpeedBoots.BootsInstance.Price))
+                if (moneyInObjects >= SpeedBoots.BootsInstance.Price)
                 {
                     wait.Upgrades.Add(SpeedBoots.BootsInstance);
+                    if (moneyInObjects > SpeedBoots.BootsInstance.Price)
+                    {
+                        wait.BagelCount += moneyInObjects - SpeedBoots.BootsInstance.Price;
+                    }
                     return true;
                 }
             }
 
-            wait.BagelCount += moneyInObjects;
-            return true;
+            if (successfulTransaction)
+            {
+                wait.BagelCount += moneyInObjects;
+                return true;
+            }
+            return false;
         }
 
     }

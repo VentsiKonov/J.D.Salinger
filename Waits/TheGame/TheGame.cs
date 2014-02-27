@@ -10,9 +10,9 @@
     {
         static void Main()
         {
+            var listOfSellable = new List<ISellable> {new Apple(), new Apple(), new Oshav()};
 
-
-            MainCharacter hero = new MainCharacter("User", Sex.Male, new MatrixCoords(0, 3), new List<ISellable>(),
+            MainCharacter hero = new MainCharacter("User", Sex.Male, new MatrixCoords(0, 3), listOfSellable,
                 new List<Song>());
 
             //Grandmother hall = new Grandmother("baba", Sex.Female, new MatrixCoords(4, 4));
